@@ -1,55 +1,35 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-const NavBar = () => {
-
-    // const [open , setOpen]=useState(false)
-    // const handleDropdown =()=>{
-    //     setOpen(!open)
-    // }
-    return (
-        <div className='sticky top-0 z-50'>
-            <div class="flex flex-wrap place-items-center ">
-  <section class="relative mx-auto">
-
-    <nav class="flex justify-between dark:bg-gray-900 bg-gray-100 uppercase dark:text-white text-black w-screen">
-      <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-        <a class="text-3xl font-bold font-heading" href="#">
-          {/* <!-- <img class="h-9" src="logo.png" alt="logo"> --> */}
-          Logo Here.
-        </a>
-        {/* <!-- Nav Links --> */}
-        <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li><a class="" href="#">Home</a></li>
-          <li><a class="" href="#">Upcoming Event</a></li>
-          <li><a class="" href="#">News</a></li>
-          <div className="dropdown dropdown-hover">
-                <label tabIndex={0} className=""> 
-                <li ><a class="" href="#">Clubs</a></li></label>
-                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a>Club 1</a></li>
-                    <li><a>Club 2</a></li>
-                </ul>
-         </div>
-         <div className="dropdown dropdown-hover">
-                <label tabIndex={0} className=""> 
-                <li ><a class="" href="#">Forums</a></li></label>
-                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><Link to='/'>Forum 1</Link></li>
-                    <li><a>Forum 2</a></li>
-                </ul>
-         </div>
-          <li><a class="" href="#">Contact Us</a></li>
-        </ul>
-      </div>
-     
-    </nav>
-    
-  </section>
-            </div>
+import React, { useEffect, useState } from 'react';
+import DeskhNav from './DeskhNav';
+import MobileNav from './MobileNav';
+import logo from '../../../Assets/icons/teamwork.png'
+const Navbar = () => {
+  const [bg, setBg] = useState(false);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      return window.scrollY > 50 ? setBg(true) : setBg(false);
+    });
+  });
+  return (
+    <>
+      <header
+        className={`${bg ? 'bg-[#DAF6FC] h-20' : 'h-24'
+          } flex items-center fixed top-0 w-full px-5 text-white z-10 transition-all duration-300`}
+      >
+        <div className='w-10/12 mx-auto h-full flex items-center justify-between'>
+          <div className="flex items-center -mt-4">
+            <img src={logo} alt="" />
+            <h1 className="text-2xl text-[#1D2746] ml-2 font-bold font-mono">UIU CLUB </h1>
+          </div>
+          <div className='hidden lg:block'>
+            <DeskhNav ></DeskhNav>
+          </div>
+          <div className='lg:hidden'>
+            <MobileNav />
+          </div>
         </div>
-
-    );
+      </header>
+    </>
+  );
 };
 
-export default NavBar;
+export default Navbar;
