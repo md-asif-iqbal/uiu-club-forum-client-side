@@ -35,7 +35,7 @@ const NavBar = () => {
                 <label tabIndex={0} className=""> 
                 <li ><a class="" href="#">Forums</a></li></label>
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><Link to='/'>Forum 1</Link></li>
+                    <li><Link to='/forum'>Forum 1</Link></li>
                     <li><a>Forum 2</a></li>
                 </ul>
          </div>
