@@ -1,107 +1,31 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Autoplay, Pagination,Navigation ,Scrollbar ,A11y} from "swiper";
+import { ImSearch } from 'react-icons/im';
+import bg from '../../../Assets/background/building.png'
+import bord from '../../../Assets/background/bord.png'
+import flowr from '../../../Assets/background/flower.png'
 const Banner = () => {
-    return (
-        <div>
-             <Swiper
-      // install Swiper modules
-      spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Autoplay, Pagination]}
-        className="mySwiper"
-      
-      
-    >
-      <SwiperSlide> <div className='relative border-b-8 border-primary'>
-              <img src='https://www.uiu.ac.bd/wp-content/uploads/2021/11/Banner_CP.jpg' alt="" className='w-full h-screen' />
-              <div className="banner"> </div>
-              <div className=" absolute top-2/4 left-40 h-24  flex justify-center items-center">
-                
-                  <div className="">
-                    <h1 className="md:text-5xl font-bold font-mono text-white">
-                      Its Title
-                    </h1>
-                    <br />
-                    <h1 className='text-2xl md:w-10/12 w-full leading-loose font-mono font-medium text-white'>details</h1>
-                    <div className='mt-4'>
-                      <button className='exploreBtn mr-10 mb-3 font-mono uppercase'>Loren More</button>
-                      {/* <button className='donateBtn font-mono uppercase'><Link to={item.url}>Get Planning</Link></button> */}
-                    </div>
-                  </div>
-              
-              </div>
-            </div></SwiperSlide>
-      <SwiperSlide><div className='relative border-b-8 border-primary'>
-              <img src='https://www.uiu.ac.bd/wp-content/uploads/2021/11/Banner_CP.jpg' alt="" className='w-full h-screen' />
-              <div className="banner"> </div>
-              <div className=" absolute top-2/4 left-40 h-24  flex justify-center items-center">
-                
-                  <div className="">
-                    <h1 className="md:text-5xl font-bold font-mono text-white">
-                      Its Title
-                    </h1>
-                    <br />
-                    <h1 className='text-2xl md:w-10/12 w-full leading-loose font-mono font-medium text-white'>details</h1>
-                    <div className='mt-4'>
-                      <button className='exploreBtn mr-10 mb-3 font-mono uppercase'>Loren More</button>
-                      {/* <button className='donateBtn font-mono uppercase'><Link to={item.url}>Get Planning</Link></button> */}
-                    </div>
-                  </div>
-              
-              </div>
-            </div></SwiperSlide>
-      <SwiperSlide><div className='relative border-b-8 border-primary'>
-              <img src='https://www.uiu.ac.bd/wp-content/uploads/2021/11/Banner_CP.jpg' alt="" className='w-full h-screen' />
-              <div className="banner"> </div>
-              <div className=" absolute top-2/4 left-40 h-24  flex justify-center items-center">
-                
-                  <div className="">
-                    <h1 className="md:text-5xl font-bold font-mono text-white">
-                      Its Title
-                    </h1>
-                    <br />
-                    <h1 className='text-2xl md:w-10/12 w-full leading-loose font-mono font-medium text-white'>details</h1>
-                    <div className='mt-4'>
-                      <button className='exploreBtn mr-10 mb-3 font-mono uppercase'>Loren More</button>
-                      {/* <button className='donateBtn font-mono uppercase'><Link to={item.url}>Get Planning</Link></button> */}
-                    </div>
-                  </div>
-              
-              </div>
-            </div></SwiperSlide>
-      <SwiperSlide><div className='relative border-b-8 border-primary'>
-              <img src='https://www.uiu.ac.bd/wp-content/uploads/2021/11/Banner_CP.jpg' alt="" className='w-full w-screen h-screen' />
-              <div className="banner"> </div>
-              <div className=" absolute top-2/4 left-40 h-24  flex justify-center items-center">
-                
-                  <div className="">
-                    <h1 className="md:text-5xl font-bold font-mono text-white">
-                      Its Title
-                    </h1>
-                    <br />
-                    <h1 className='text-2xl md:w-10/12 w-full leading-loose font-mono font-medium text-white'>details</h1>
-                    <div className='mt-4'>
-                      <button className='exploreBtn mr-10 mb-3 font-mono uppercase'>Loren More</button>
-                      {/* <button className='donateBtn font-mono uppercase'><Link to={item.url}>Get Planning</Link></button> */}
-                    </div>
-                  </div>
-              
-              </div>
-            </div></SwiperSlide>
-    </Swiper>
-        </div>
-    );
+  return (
+    <div className='bg-[#DAF6FC] md:pt-60 pt-40 h-screen relative'>
+      <div><h1 className='md:text-4xl text-3xl font-bold capitalize text-[#1D2746] text-center'>Hello, what can we help you find?</h1>
+        <h2 className='text-xl text-center mx-auto capitalize text-[#6B707F] md:w-5/12 my-7 w-9/12'>Docly is a fully featured knowledge base theme for WordPress</h2>
+      </div>
+      <div className="relative overflow-hidden md:w-5/12 w-11/12 p-0 mx-auto">
+        <input
+          type="text"
+          className=" placeholder-[#6B707F] px-10 md:text-lg text-sm font-mono input py-10 w-full text-black bg-white"
+          placeholder="Search Your Club Or Forum Name"
+        />
+        <h1 className="absolute bottom-6 right-12 text-[#64CEE6] text-3xl ">
+          <ImSearch />
+        </h1>
+      </div>
+      <div className=" hidden md:block">
+        <img className=" absolute right-1/4 bottom-0" src={bg} alt="" />
+        <img className=' absolute bottom-0 right-2/4' src={bord} alt="" />
+        <img className=' absolute bottom-0 left-2/3' src={flowr} alt="" />
+      </div>
+    </div>
+  );
 };
 
 export default Banner;

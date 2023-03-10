@@ -1,14 +1,13 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Forum from './Pages/Users/Forum/Forum';
 import Login from './Pages/Admin/Login/Login';
 import NavBar from './Pages/Shared/NavBar/NavBar';
 import Home from './Pages/Users/Home/Home';
 
 function App() {
   return (
-    <div className="App">
+    <div className="font-mono">
         <NavBar/> 
         
         <Routes>
