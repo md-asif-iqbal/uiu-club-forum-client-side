@@ -13,6 +13,7 @@ const EventSchedule = () => {
         </p>
       </div>
       <div>
+
         <section class="container mx-auto p-6 font-mono mt-10">
           <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="w-full overflow-x-auto">
@@ -26,7 +27,7 @@ const EventSchedule = () => {
                     <th class="px-4 py-3">Room</th>
                   </tr>
                 </thead>
-                <tbody class="bg-white">
+                <tbody class="">
                   <tr class="text-gray-700">
                     <td class="px-4 py-3 border">1</td>
                     <td class="px-4 py-3 border">Marketing Workshop</td>
@@ -77,6 +78,8 @@ const EventSchedule = () => {
             </div>
           </div>
         </section>
+       
+
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <header
         className={`${bg ? 'bg-[#DAF6FC] h-20' : 'h-24'
-          } flex items-center fixed top-0 w-full px-5 text-white z-10 transition-all duration-300`}
+          } flex items-center fixed top-0 w-full px-5 text-white z-50 transition-all duration-300`}
       >
         <div className='w-10/12 mx-auto h-full flex items-center justify-between'>
           <div className="flex items-center -mt-4">

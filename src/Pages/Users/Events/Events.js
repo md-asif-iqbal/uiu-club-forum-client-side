@@ -1,8 +1,9 @@
 import React from 'react';
 import EventConfarence from './EventConfarence';
 import EventsBanner from './EventsBanner';
+import EventsBlogs from './EventsBlogs';
 import EventSchedule from './EventSchedule';
-import EventSpeakers from './EventSpeakers';
+// import EventSpeakers from './EventSpeakers';
 
 const Events = () => {
     return (
@@ -10,7 +11,8 @@ const Events = () => {
            <EventsBanner/>
            <EventConfarence/>
             {/* <EventSpeakers /> */}
-            <EventSchedule/>
+            <EventSchedule />
+            <EventsBlogs/>
         </div>
     );
 };

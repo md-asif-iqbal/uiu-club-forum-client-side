@@ -1,22 +1,21 @@
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: ["./src/**/*.{js,jsx,ts,tsx}"],
-//   theme: {
-//     daisyui: {
-//       styled: false,
-//       themes: true,
-//       base: true,
-//       utils: true,
-//       logs: true,
-//       rtl: false,
-//       prefix: "",
-//       darkTheme: "light",
-//     },
-//   },
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    daisyui: {
+      styled: false,
+      themes: true,
+      base: true,
+      utils: true,
+      logs: true,
+      rtl: false,
+      prefix: "",
+      darkTheme: "light",
+    },
+  },
 
-//   plugins: [require("daisyui")],
-// }
-
+  plugins: [require("daisyui")],
+};
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
