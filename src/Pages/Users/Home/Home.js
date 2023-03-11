@@ -4,6 +4,7 @@ import ClubForum from '../CLub&Forum/ClubForum';
 import ClubCtp from '../CLubCTP/ClubCtp';
 import UpcomingEvents from '../UpcomingEvents/UpcomingEvents';
 import Contact from './Contact';
+import RecentEvent from './RecentEvent';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <UpcomingEvents />
             <ClubForum />
             <ClubCtp />
+            <RecentEvent />
             <Contact />
         </div>
     );
