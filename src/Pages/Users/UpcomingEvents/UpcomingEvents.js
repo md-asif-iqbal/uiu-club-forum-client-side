@@ -38,7 +38,7 @@ const UpcomingEvents = () => {
     ]
     return (
         <>
-            <div className='relative mt-40'>
+            <div className='relative mt-28'>
                 <h1 className="md:text-[110px] text-4xl absolute -z-10 md:left-1/4 top-8 text-[#f2eded89] text-center font-mono font-bold">Upcoming Events</h1>
                 <h1 className="text-xl text-center font-mono text-secondary font-semibold">Upcoming Events</h1>
                 <h1 className="text-4xl my-2 text-center mb-8 font-mono text-secondary font-semibold">Latest Awesome Events</h1>
