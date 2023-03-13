@@ -1,10 +1,18 @@
 import React from 'react';
+import ForumActivity from './ForumActivity';
+import ForumBanner from './ForumBanner';
+import ForumMembers from './ForumMembers';
+import ForumRegister from './ForumRegister';
 
 const Forum = () => {
     return (
-        <div>
-            hi
-        </div>
+      <div>
+            <ForumBanner />
+            <ForumRegister />
+            <ForumActivity />
+            
+            <ForumMembers/>
+      </div>
     );
 };
 

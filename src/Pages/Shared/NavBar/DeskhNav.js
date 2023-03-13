@@ -41,7 +41,7 @@ const DeskhNav = () => {
       </li>
       <li className=" dark:text-[#6B707F]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
         <CustomLink
-          to="/BloodReq"
+          to="/Club"
           className="transition-all text-lg duration-300 font-semibold"
         >
           Clubs
@@ -49,7 +49,7 @@ const DeskhNav = () => {
       </li>
       <li className=" dark:text-[#6B707F]  hover:border-b-[1px] border-[#64CEE6] text-black  cursor-pointer uppercase">
         <CustomLink
-          to="/BloodReq"
+          to="/Forum"
           className="transition-all text-lg duration-300 font-semibold"
         >
           Forums
