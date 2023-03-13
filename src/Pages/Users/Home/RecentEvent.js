@@ -78,7 +78,7 @@ const RecentEvent = () => {
                                     <div className='flex items-center mt-3 flex-wrap justify-between'>
                                     <div className="border ml-10"> </div>
                                     <div>
-                                        <h1 className='text-sm cursor-pointer font-bold mr-10'>Read More ..</h1>
+                                        <h1 className='text-sm cursor-pointer text-primary font-bold mr-10'>Read More ..</h1>
                                     </div>
                                     </div>
                                 </div>
