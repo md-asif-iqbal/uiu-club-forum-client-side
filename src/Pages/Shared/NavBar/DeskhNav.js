@@ -14,7 +14,11 @@ const DeskhNav = () => {
     const navigation = <>
         <li className=' dark:text-[#6B707F]  text-black hover:border-b-[1px] border-[#64CEE6] text-lg cursor-pointer'><CustomLink to='/'
             className='transition-all duration-300 uppercase font-semibold '> Home</CustomLink></li>
+
         <li className='  dark:text-[#6B707F] hover:border-b-[1px] border-[#64CEE6] text-black text-lg cursor-pointer uppercase'><CustomLink to='/upcoming-events'
+
+        <li className=' py-2  dark:text-[#6B707F] hover:border-b-[1px] border-[#64CEE6] text-black text-lg cursor-pointer uppercase'><CustomLink to='/upcoming-events'
+
             className='transition-all duration-300 font-semibold'> Upcoming Events</CustomLink></li>
         <li className=' dark:text-[#6B707F]  hover:border-b-[1px] border-[#64CEE6] text-lg text-black cursor-pointer uppercase'><CustomLink to='/news'
             className='transition-all duration-300  font-semibold'>News</CustomLink></li>
