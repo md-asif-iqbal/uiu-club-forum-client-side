@@ -140,7 +140,7 @@ const Contact = () => {
                         <div class="w-full lg:w-1/2 xl:w-5/12">
                             <div class="text-secondary relative rounded-lg shadow-lg">
                                 <form>
-                                    <div class="my-6 md:ml-20 ml-0">
+                                    <div class="my-6">
                                         <input
                                             type="text"
                                             placeholder="Your Name"
@@ -158,7 +158,7 @@ const Contact = () => {
                         "
                                         />
                                     </div>
-                                    <div class="mb-6 md:ml-20 ml-0">
+                                    <div class="mb-6">
                                         <input
                                             type="email"
                                             placeholder="Your Email"
@@ -176,7 +176,7 @@ const Contact = () => {
                         "
                                         />
                                     </div>
-                                    <div class="mb-6 md:ml-20 ml-0">
+                                    <div class="mb-6">
                                         <input
                                             type="text"
                                             placeholder="Your Phone"
@@ -194,7 +194,7 @@ const Contact = () => {
                         "
                                         />
                                     </div>
-                                    <div class="mb-6 md:ml-20 ml-0">
+                                    <div class="mb-6">
                                         <textarea
                                             rows="6"
                                             placeholder="Your Message"
