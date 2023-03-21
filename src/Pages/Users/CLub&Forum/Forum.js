@@ -1,6 +1,7 @@
 import React from 'react';
 import ForumActivity from './ForumActivity';
 import ForumBanner from './ForumBanner';
+import ForumFAQ from './ForumFAQ';
 import ForumMembers from './ForumMembers';
 import ForumRegister from './ForumRegister';
 
@@ -11,7 +12,8 @@ const Forum = () => {
             <ForumRegister />
             <ForumActivity />
             
-            <ForumMembers/>
+        <ForumMembers />
+        <ForumFAQ/>
       </div>
     );
 };
