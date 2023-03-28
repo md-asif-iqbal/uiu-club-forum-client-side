@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CustomLink from "../../../Component/CustomLink";
 import auth from "../../../firebase.init";
 const DeskhNav = () => {
@@ -82,13 +82,19 @@ const DeskhNav = () => {
                 id="0"
                 className="dropdown-content menu shadow drop-bg rounded"
               >
-                <div className="uppercase w-48 max-w-screen origin-center appear-done enter-done bg-[#6a30608e] pl-4 rounded-md">
+                <div className="uppercase w-56 max-w-screen p-2 origin-center appear-done enter-done bg-[#6a30608e] pl-4 rounded-md">
                   <button
-                    className="flex w-full items-center px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md"
+                    className="flex uppercase w-full  text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md"
                     onClick={logout}
                   >
                     LOGOUT
                   </button>
+                  <Link to='/request-for-create-new-club-or-forum' className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md">
+                    Request for create new Club&Forum
+                  </Link>
+                  <Link to='/Dashboard' className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md">
+                    Dashboard
+                  </Link>
                 </div>
               </ul>
             </div>

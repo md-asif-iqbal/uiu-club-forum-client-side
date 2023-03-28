@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Dashboard from "./Pages/Admin/Login/Dashboard/Dashboard";
 import Login from "./Pages/Shared/Account/Login";
 import Registation from "./Pages/Shared/Account/Registation";
 import Footer from "./Pages/Shared/Footer/Footer";
@@ -9,6 +10,7 @@ import ForumAnnouncment from "./Pages/Users/CLub&Forum/ForumActivity/ForumAnnoun
 import ForumBlogs from "./Pages/Users/CLub&Forum/ForumActivity/ForumBlogs";
 import Events from "./Pages/Users/Events/Events";
 import Home from "./Pages/Users/Home/Home";
+import NewClubForum from "./Pages/Users/NewClubForum/NewClubForum";
 import News from "./Pages/Users/News/News";
 
 function App() {
@@ -23,9 +25,17 @@ function App() {
         <Route path="/news" element={<News />}></Route>
         <Route path="/Forum" element={<Forum />}>
           <Route index element={<ForumAnnouncment />}></Route>
-          <Route path="/Forum/Activitys" element={<ForumActivitys/>}></Route>
-          <Route path="/Forum/Blogs" element={<ForumBlogs/>}></Route>
+          <Route path="/Forum/Activitys" element={<ForumActivitys />}></Route>
+          <Route path="/Forum/Blogs" element={<ForumBlogs />}></Route>
         </Route>
+        <Route
+          path="/request-for-create-new-club-or-forum"
+          element={<NewClubForum />}
+        ></Route>
+        <Route
+          path="/Dashboard"
+          element={<Dashboard />}
+        ></Route>
       </Routes>
       <Footer />
     </div>

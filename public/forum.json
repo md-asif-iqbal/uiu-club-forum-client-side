@@ -1,0 +1,32 @@
+[
+    {
+        "title":"UIU HRF",
+        "frontDescription":"The Most Popular Forum On The UIU !",
+        "registration":[
+            {
+              "name": "Asif Iqbal",
+              "img": "",
+              "payemnt": "",
+              "email": "",
+              "number":"220222"
+      
+            }
+        ],
+        "announcement":[
+            {
+              "announcementTitle": "Ideas and UI components in your inbox",
+              "announcementDescription": "Sign up to receive ideas, free components and free resources plus 15% on all of our pro UI kits.",
+              "img": "",
+              "meetLink": ""
+            }
+        ],
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":""
+
+    }
+    
+]
