@@ -16,11 +16,15 @@
             {
               "announcementTitle": "Ideas and UI components in your inbox",
               "announcementDescription": "Sign up to receive ideas, free components and free resources plus 15% on all of our pro UI kits.",
-              "img": "",
+              "img": "https://images.unsplash.com/photo-1601805215126-9df64231459b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=mojtaba-mosayebzadeh-mR_fsL-KbEg-unsplash.jpg&w=640",
               "meetLink": ""
             }
         ],
-        "":"",
+        "activity":[
+          {
+
+          }
+        ],
         "":"",
         "":"",
         "":"",

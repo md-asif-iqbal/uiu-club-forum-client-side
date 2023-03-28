@@ -15,21 +15,21 @@ const EventSpeakers = () => {
           <div className="container flex flex-col justify-center p-4 mx-auto">
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2">
               <div>
-                <a href="#" class="group relative block bg-black">
+                <a href="#" className="group relative block bg-black">
                   <img
                     alt="Developer"
                     src="https://source.unsplash.com/random/300x300/?1"
-                    class="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
+                    className="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
                   />
 
-                  <div class="relative p-4 sm:p-6 lg:p-8 ">
-                    <p class=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
+                  <div className="relative p-4 sm:p-6 lg:p-8 ">
+                    <p className=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
                       Tony Wayne
                     </p>
 
-                    {/* <div class=" mt-14 ">
-                      <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                        <p class="text-sm text-white">
+                    {/* <div className=" mt-14 ">
+                      <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                        <p className="text-sm text-white">
                           Lorem ipsum dolor, sit amet consectetur adipisicing
                           elit. Omnis perferendis hic asperiores quibusdam
                           quidem voluptates doloremque reiciendis nostrum harum.
@@ -41,21 +41,21 @@ const EventSpeakers = () => {
                 </a>
               </div>
               <div>
-                <a href="#" class="group relative block bg-black">
+                <a href="#" className="group relative block bg-black">
                   <img
                     alt="Developer"
                     src="https://source.unsplash.com/random/300x300/?2"
-                    class="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
+                    className="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
                   />
 
-                  <div class="relative p-4 sm:p-6 lg:p-8 ">
-                    <p class=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
+                  <div className="relative p-4 sm:p-6 lg:p-8 ">
+                    <p className=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
                       Tony Wayne
                     </p>
 
-                    {/* <div class=" mt-14 ">
-                      <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                        <p class="text-sm text-white">
+                    {/* <div className=" mt-14 ">
+                      <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                        <p className="text-sm text-white">
                           Lorem ipsum dolor, sit amet consectetur adipisicing
                           elit. Omnis perferendis hic asperiores quibusdam
                           quidem voluptates doloremque reiciendis nostrum harum.
@@ -67,21 +67,21 @@ const EventSpeakers = () => {
                 </a>
               </div>
               <div>
-                <a href="#" class="group relative block bg-black">
+                <a href="#" className="group relative block bg-black">
                   <img
                     alt="Developer"
                     src="https://source.unsplash.com/random/300x300/?3"
-                    class="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
+                    className="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
                   />
 
-                  <div class="relative p-4 sm:p-6 lg:p-8 ">
-                    <p class=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
+                  <div className="relative p-4 sm:p-6 lg:p-8 ">
+                    <p className=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
                       Tony Wayne
                     </p>
 
-                    {/* <div class=" mt-14 ">
-                      <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                        <p class="text-sm text-white">
+                    {/* <div className=" mt-14 ">
+                      <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                        <p className="text-sm text-white">
                           Lorem ipsum dolor, sit amet consectetur adipisicing
                           elit. Omnis perferendis hic asperiores quibusdam
                           quidem voluptates doloremque reiciendis nostrum harum.
@@ -93,21 +93,21 @@ const EventSpeakers = () => {
                 </a>
               </div>
               <div>
-                <a href="#" class="group relative block bg-black">
+                <a href="#" className="group relative block bg-black">
                   <img
                     alt="Developer"
                     src="https://source.unsplash.com/random/300x300/?4"
-                    class="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
+                    className="absolute inset-0  w-full object-cover opacity-100 transition-opacity group-hover:opacity-100"
                   />
 
-                  <div class="relative p-4 sm:p-6 lg:p-8 ">
-                    <p class=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
+                  <div className="relative p-4 sm:p-6 lg:p-8 ">
+                    <p className=" mt-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-xl mt-1 text-center font-bold text-white sm:text-2xl">
                       Tony Wayne
                     </p>
 
-                    {/* <div class=" mt-14 ">
-                      <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                        <p class="text-sm text-white">
+                    {/* <div className=" mt-14 ">
+                      <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                        <p className="text-sm text-white">
                           Lorem ipsum dolor, sit amet consectetur adipisicing
                           elit. Omnis perferendis hic asperiores quibusdam
                           quidem voluptates doloremque reiciendis nostrum harum.

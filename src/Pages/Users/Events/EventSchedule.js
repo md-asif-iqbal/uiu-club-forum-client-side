@@ -13,73 +13,85 @@ const EventSchedule = () => {
         </p>
       </div>
       <div>
-
-        <section class="container mx-auto p-6 font-mono mt-10">
-          <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-            <div class="w-full overflow-x-auto">
-              <table class="w-full">
+        <section className="container mx-auto p-6 font-mono mt-10">
+          <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+            <div className="w-full overflow-x-auto">
+              <table className="w-full">
                 <thead>
-                  <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                    <th class="px-4 py-3">#</th>
-                    <th class="px-4 py-3">Topic</th>
-                    <th class="px-4 py-3">Speaker</th>
-                    <th class="px-4 py-3">Time</th>
-                    <th class="px-4 py-3">Room</th>
+                  <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                    <th className="px-4 py-3">#</th>
+                    <th className="px-4 py-3">Topic</th>
+                    <th className="px-4 py-3">Speaker</th>
+                    <th className="px-4 py-3">Time</th>
+                    <th className="px-4 py-3">Room</th>
                   </tr>
                 </thead>
-                <tbody class="">
-                  <tr class="text-gray-700">
-                    <td class="px-4 py-3 border">1</td>
-                    <td class="px-4 py-3 border">Marketing Workshop</td>
-                    <td class="px-4 py-3 text-ms font-semibold border">
+                <tbody className="">
+                  <tr className="text-gray-700">
+                    <td className="px-4 py-3 border">1</td>
+                    <td className="px-4 py-3 border">Marketing Workshop</td>
+                    <td className="px-4 py-3 text-ms font-semibold border">
                       Lara Quize
                     </td>
-                    <td class="px-4 py-3 text-xs border"> 09:30 - 10:30 </td>
-                    <td class="px-4 py-3 text-sm border">Times Complex</td>
+                    <td className="px-4 py-3 text-xs border">
+                      {" "}
+                      09:30 - 10:30{" "}
+                    </td>
+                    <td className="px-4 py-3 text-sm border">Times Complex</td>
                   </tr>
-                  <tr class="text-gray-700">
-                    <td class="px-4 py-3 border">2</td>
-                    <td class="px-4 py-3 border">Marketing Workshop</td>
-                    <td class="px-4 py-3 text-ms font-semibold border">
+                  <tr className="text-gray-700">
+                    <td className="px-4 py-3 border">2</td>
+                    <td className="px-4 py-3 border">Marketing Workshop</td>
+                    <td className="px-4 py-3 text-ms font-semibold border">
                       Lara Quize
                     </td>
-                    <td class="px-4 py-3 text-xs border"> 09:30 - 10:30 </td>
-                    <td class="px-4 py-3 text-sm border">Times Complex</td>
+                    <td className="px-4 py-3 text-xs border">
+                      {" "}
+                      09:30 - 10:30{" "}
+                    </td>
+                    <td className="px-4 py-3 text-sm border">Times Complex</td>
                   </tr>
-                  <tr class="text-gray-700">
-                    <td class="px-4 py-3 border">3</td>
-                    <td class="px-4 py-3 border">Marketing Workshop</td>
-                    <td class="px-4 py-3 text-ms font-semibold border">
+                  <tr className="text-gray-700">
+                    <td className="px-4 py-3 border">3</td>
+                    <td className="px-4 py-3 border">Marketing Workshop</td>
+                    <td className="px-4 py-3 text-ms font-semibold border">
                       Lara Quize
                     </td>
-                    <td class="px-4 py-3 text-xs border"> 09:30 - 10:30 </td>
-                    <td class="px-4 py-3 text-sm border">Times Complex</td>
+                    <td className="px-4 py-3 text-xs border">
+                      {" "}
+                      09:30 - 10:30{" "}
+                    </td>
+                    <td className="px-4 py-3 text-sm border">Times Complex</td>
                   </tr>
-                  <tr class="text-gray-700">
-                    <td class="px-4 py-3 border">4</td>
-                    <td class="px-4 py-3 border">Marketing Workshop</td>
-                    <td class="px-4 py-3 text-ms font-semibold border">
+                  <tr className="text-gray-700">
+                    <td className="px-4 py-3 border">4</td>
+                    <td className="px-4 py-3 border">Marketing Workshop</td>
+                    <td className="px-4 py-3 text-ms font-semibold border">
                       Lara Quize
                     </td>
-                    <td class="px-4 py-3 text-xs border"> 09:30 - 10:30 </td>
-                    <td class="px-4 py-3 text-sm border">Times Complex</td>
+                    <td className="px-4 py-3 text-xs border">
+                      {" "}
+                      09:30 - 10:30{" "}
+                    </td>
+                    <td className="px-4 py-3 text-sm border">Times Complex</td>
                   </tr>
-                  <tr class="text-gray-700">
-                    <td class="px-4 py-3 border">5</td>
-                    <td class="px-4 py-3 border">Marketing Workshop</td>
-                    <td class="px-4 py-3 text-ms font-semibold border">
+                  <tr className="text-gray-700">
+                    <td className="px-4 py-3 border">5</td>
+                    <td className="px-4 py-3 border">Marketing Workshop</td>
+                    <td className="px-4 py-3 text-ms font-semibold border">
                       Lara Quize
                     </td>
-                    <td class="px-4 py-3 text-xs border"> 09:30 - 10:30 </td>
-                    <td class="px-4 py-3 text-sm border">Times Complex</td>
+                    <td className="px-4 py-3 text-xs border">
+                      {" "}
+                      09:30 - 10:30{" "}
+                    </td>
+                    <td className="px-4 py-3 text-sm border">Times Complex</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </section>
-       
-
       </div>
     </div>
   );

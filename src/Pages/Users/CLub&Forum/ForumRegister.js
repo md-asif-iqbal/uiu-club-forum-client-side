@@ -33,7 +33,7 @@ const ForumRegister = () => {
       case 0:
         return (
           <>
-            <div className="card-body ">
+            <div className="card-body -mt-8">
               <h1 className="text-xl font-bold text-center">Information</h1>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
@@ -185,7 +185,7 @@ const ForumRegister = () => {
                     <div className="card mx-auto bg-gray-100 mt-6">
                       {activeStep === 2 ? (
                         <Typography variant="h3" className="align-center text-center p-5">
-                          Passed
+                          Thanks for Joining
                         </Typography>
                       ) : (
                         <>{getStepContent(activeStep)}</>
