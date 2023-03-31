@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <div className='bg-[#DAF6FC] md:pt-60 pt-40 h-screen relative'>
       <div><h1 className='md:text-4xl text-3xl font-bold capitalize text-[#1D2746] text-center'>Hello, what can we help you find?</h1>
-        <h2 className='text-xl text-center mx-auto capitalize text-[#6B707F] md:w-5/12 my-7 w-9/12'>Docly is a fully featured knowledge base theme for WordPress</h2>
+        <h2 className='text-xl text-center mx-auto capitalize text-[#6B707F] md:w-5/12 my-7 w-9/12'>Show your extra curriculum activities   </h2>
       </div>
       <div className="relative overflow-hidden md:w-5/12 w-11/12 p-0 mx-auto">
         <input
