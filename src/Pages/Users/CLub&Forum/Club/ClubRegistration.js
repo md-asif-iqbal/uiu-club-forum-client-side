@@ -4,7 +4,7 @@ import CheckoutForm from '../CheckoutForm';
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import joinUS from "../../../Assets/background/JoinUS-edit.png";
+import joinUS from "../../../../Assets/background/JoinUS-edit.png";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";

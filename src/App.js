@@ -12,6 +12,10 @@ import Events from "./Pages/Users/Events/Events";
 import Home from "./Pages/Users/Home/Home";
 import NewClubForum from "./Pages/Users/NewClubForum/NewClubForum";
 import News from "./Pages/Users/News/News";
+import Club from "./Pages/Users/CLub&Forum/Club";
+import ClubAnnouncement from "./Pages/Users/CLub&Forum/Club/ClubAnnouncement";
+import ClubBlogs from "./Pages/Users/CLub&Forum/Club/ClubBlogs";
+import ClubActivitys from "./Pages/Users/CLub&Forum/Club/ClubActivitys";
 
 function App() {
   return (
@@ -28,14 +32,16 @@ function App() {
           <Route path="/Forum/Activitys" element={<ForumActivitys />}></Route>
           <Route path="/Forum/Blogs" element={<ForumBlogs />}></Route>
         </Route>
+        <Route path="/Club" element={<Club />}>
+          <Route index element={<ClubAnnouncement />}></Route>
+          <Route path="/Club/Activitys" element={<ClubActivitys />}></Route>
+          <Route path="/Club/Blogs" element={<ClubBlogs />}></Route>
+        </Route>
         <Route
           path="/request-for-create-new-club-or-forum"
           element={<NewClubForum />}
         ></Route>
-        <Route
-          path="/Dashboard"
-          element={<Dashboard />}
-        ></Route>
+        <Route path="/Dashboard" element={<Dashboard />}></Route>
       </Routes>
       <Footer />
     </div>
