@@ -29,7 +29,7 @@ const News = () => {
                 <h1 className="text-xl text-center font-mono text-secondary font-semibold">Our News</h1>
                 <h1 className="text-4xl my-2 text-center mb-8 font-mono text-secondary font-semibold">Latest Awesome News</h1>
             </div>
-            <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-32 gap-10 mb-20'>
+            <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-32 gap-10 mb-20'>
                 {
                     currentData.map(item => (
                         <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-primary/10">
