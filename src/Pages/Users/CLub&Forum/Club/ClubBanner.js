@@ -15,7 +15,7 @@ const ClubBanner = () => {
             </div>
             <div className="relative overflow-hidden mx-auto">
               <h1 className="md:text-4xl text-3xl  font-bold capitalize text-[#1D2746] text-center">
-                WELCOME TO Human Resource FORUM
+                WELCOME TO COMPUTER CLUB 
               </h1>
               <h2 className="text-xl text-center mx-auto capitalize text-black md:w-5/12 my-7 w-9/12">
                 The most popular forum on the internet!

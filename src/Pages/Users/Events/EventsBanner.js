@@ -66,12 +66,78 @@ const EventsBanner = () => {
                   </div>
                 </div>
                 <div className="text-center mt-8">
-                  <button
+                  <label
                     type="register"
+                    htmlFor="my-modal-3"
                     className="border border-yellow-400 p-3 px-5 rounded hover:bg-yellow-400 hover:text-black font-bold text-yellow-400"
                   >
                     Register Now
-                  </button>
+                  </label>
+                  {/* Put this part before </body> tag */}
+                  <input
+                    type="checkbox"
+                    id="my-modal-3"
+                    className="modal-toggle"
+                  />
+                  <div className="modal">
+                    <div className="modal-box relative">
+                      <label
+                        htmlFor="my-modal-3"
+                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                      >
+                        ✕
+                      </label>
+                      <h3 className="text-lg font-bold">
+                        Marketing Conferencee Registation
+                      </h3>
+                      <h4> For Volunteer</h4>
+                      <div className="w-full mb-8">
+                        <div className="form-control w-full max-w-xs mx-auto ">
+                          <label className="label">
+                            <span className="label-text">
+                              What is your name?
+                            </span>
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Type here"
+                            className="input input-bordered w-full max-w-xs mx-auto "
+                          />
+                        </div>
+                        <div className="form-control w-full max-w-xs mx-auto ">
+                          <label className="label">
+                            <span className="label-text">
+                              What is your student ID?
+                            </span>
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="Type here"
+                            className="input input-bordered w-full max-w-xs"
+                          />
+                        </div>
+                        <div className="form-control w-full max-w-xs mx-auto ">
+                          <label className="label">
+                            <span className="label-text">
+                              What is your Number?
+                            </span>
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="Type here"
+                            className="input input-bordered w-full max-w-xs"
+                          />
+                        </div>
+                      </div>
+                      <label
+                        type="register"
+                        htmlFor="my-modal-3"
+                        className="border border-yellow-400 p-3 px-10 rounded hover:bg-yellow-400 hover:text-black font-bold text-yellow-400"
+                      >
+                        Register
+                      </label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
