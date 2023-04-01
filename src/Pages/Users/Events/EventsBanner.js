@@ -1,6 +1,13 @@
 import React from "react";
+import { useState } from "react";
+import { calculateTimeLeft } from "./TimeCount/utils";
+import { useEffect } from "react";
 
 const EventsBanner = () => {
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    useEffect(() => {
+      setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
+    }, [timeLeft]);
   return (
     <div>
       <div className="relative ">
@@ -26,8 +33,7 @@ const EventsBanner = () => {
                   <div className="flex justify-center text-center text-white">
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl font-semibold md:text-5xl text-yellow-400">
-                        <span>0</span>
-                        <span>1</span>
+                        {String(timeLeft.days).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75">
                         Day
@@ -35,8 +41,7 @@ const EventsBanner = () => {
                     </div>
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl font-semibold md:text-5xl text-blue-400">
-                        <span>1</span>
-                        <span>8</span>
+                        {String(timeLeft.hours).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75 ">
                         Hour
@@ -44,8 +49,7 @@ const EventsBanner = () => {
                     </div>
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl font-semibold md:text-5xl text-red-500">
-                        <span>5</span>
-                        <span>0</span>
+                        {String(timeLeft.minutes).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75 ">
                         Min
@@ -53,8 +57,7 @@ const EventsBanner = () => {
                     </div>
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl  font-semibold md:text-5xl text-yellow-400">
-                        <span>1</span>
-                        <span>9</span>
+                        {String(timeLeft.seconds).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75 ">
                         Second

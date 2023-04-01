@@ -8,6 +8,7 @@ import EventSchedule from './EventSchedule';
 const Events = () => {
     return (
         <div>
+
            <EventsBanner/>
            <EventConfarence/>
             {/* <EventSpeakers /> */}
