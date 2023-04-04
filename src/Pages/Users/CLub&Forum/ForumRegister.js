@@ -12,7 +12,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 const ForumRegister = () => {
   const stripePromise = loadStripe(
-    "pk_test_51L1XB5H61fNE2hoY64h8CCh1YNRbrJ3qHKQYEHrs4WnmKiPR1toY0DxvQZZG1HWrLm36JQZoXnsNLkAjJIQ7WTnW00ih4Ttx4F"
+    "pk_test_51LXS98B5Y3AeAE8iNY0Hgf4QUbKwQQVuUk1NqhUhbNZ1UhjYvdE5UJw3DnEJBLmlWBgFqKIjfXEnVZujomnNCAyo00kHESTAcf"
   );
   const mcq = [
     {
@@ -65,7 +65,7 @@ const ForumRegister = () => {
                   className="input input-bordered w-full max-w-xs"
                 />
               </div>
-              
+
               <div className="card-actions justify-end mt-2 -mb-5 ">
                 <button
                   onClick={handleNext}
@@ -75,7 +75,7 @@ const ForumRegister = () => {
                   {activeStep === 3 ? "Finish" : "Next"}
                 </button>
               </div>
-              
+
             </div>
           </>
         );
@@ -95,7 +95,7 @@ const ForumRegister = () => {
               <div className="card-body">
                 {/* see here is problem payment options can't show here */}
                 <Elements stripe={stripePromise}>
-                  <CheckoutForm  />
+                  <CheckoutForm stripe={stripePromise} />
                 </Elements>
               </div>
               <div className="card-actions justify-end">
@@ -117,7 +117,7 @@ const ForumRegister = () => {
 
   return (
     <div className="py-12 flex justify-center  items-center w-full flex-col mt-10 ">
-   
+
       <div className="md:hidden mt-6 w-full">
         <img
           src={joinUS}
@@ -193,7 +193,7 @@ const ForumRegister = () => {
                     </div>
                   </div>
                   {/* Ends */}
-                 
+
                 </div>
               </div>
             </div>
