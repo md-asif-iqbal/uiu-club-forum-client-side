@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DeskhNav from './DeskhNav';
 import MobileNav from './MobileNav';
-import logo from '../../../Assets/icons/teamwork.png'
+import logo from '../../../Assets/icons/logo.png'
 const Navbar = () => {
   const [bg, setBg] = useState(false);
   useEffect(() => {
@@ -17,8 +17,8 @@ const Navbar = () => {
       >
         <div className='w-10/12 mx-auto h-full flex items-center justify-between'>
           <div className="flex items-center -mt-4">
-            <img src={logo} alt="" />
-            <h1 className="text-2xl text-[#1D2746] ml-2 font-bold font-mono">UIU CLUB </h1>
+            <img src={logo} alt="" className='h-12' />
+            <h1 className="text-2xl text-[#1D2746] ml-2 font-bold font-mono">UIU CLUB FORUM </h1>
           </div>
           <div className='hidden lg:block'>
             <DeskhNav ></DeskhNav>

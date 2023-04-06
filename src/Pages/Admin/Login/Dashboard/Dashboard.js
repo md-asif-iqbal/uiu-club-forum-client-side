@@ -10,10 +10,6 @@ const Dashboard = () => {
           className="drawer-toggle"
         />
         <div className="drawer-content">
-          
-          <h2 className="text-2xl mx-auto text-center font-bold text-purple-500">
-            Welcome to your Dashboard
-          </h2>
           <Outlet></Outlet>
         </div>
         <div className="drawer-side">
@@ -21,15 +17,19 @@ const Dashboard = () => {
           <ul className="menu p-4 overflow-y-auto gap-2 w-50 bg-primary rounded text-base-content">
             {/* <!-- Sidebar content here --> */}
             <li className="font-bold">
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/Dashboard">Dashboard</Link>
             </li>
             {/* {!admin && ( */}
             <>
               <li className="font-bold">
-                <Link to="/dashboard/myOrders">All Requested Club&Forum</Link>
+                <Link to="/Dashboard/all-requested-club-forum">
+                  All Requested Club&Forum
+                </Link>
               </li>
               <li className="font-bold">
-                <Link to="/dashboard/addReviews">Request for Room Booking</Link>
+                <Link to="/Dashboard/request-for-room-booking">
+                  Request for Room Booking
+                </Link>
               </li>
               <li className="font-bold">
                 <Link to="/dashboard/addReviews">Add new Event</Link>
@@ -64,7 +64,6 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-      
     );
 };
 

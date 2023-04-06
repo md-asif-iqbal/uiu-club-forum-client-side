@@ -16,6 +16,9 @@ import Club from "./Pages/Users/CLub&Forum/Club";
 import ClubAnnouncement from "./Pages/Users/CLub&Forum/Club/ClubAnnouncement";
 import ClubBlogs from "./Pages/Users/CLub&Forum/Club/ClubBlogs";
 import ClubActivitys from "./Pages/Users/CLub&Forum/Club/ClubActivitys";
+import AllShortcut from "./Pages/Admin/Login/Dashboard/AllShortcut";
+import RequestListClubForum from "./Pages/Admin/Login/Dashboard/RequestListClubForum";
+import RequestForRoomBook from "./Pages/Admin/Login/Dashboard/RequestForRoomBook";
 
 function App() {
   return (
@@ -41,7 +44,11 @@ function App() {
           path="/request-for-create-new-club-or-forum"
           element={<NewClubForum />}
         ></Route>
-        <Route path="/Dashboard" element={<Dashboard />}></Route>
+        <Route path="/Dashboard" element={<Dashboard />}>
+          <Route index element={<AllShortcut />}></Route>
+          <Route path ="/Dashboard/all-requested-club-forum" element={<RequestListClubForum/>}></Route>
+          <Route path ="/Dashboard/request-for-room-booking" element={<RequestForRoomBook/>}></Route>
+        </Route>
       </Routes>
       <Footer />
     </div>
