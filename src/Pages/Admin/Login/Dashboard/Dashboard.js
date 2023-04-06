@@ -1,10 +1,70 @@
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <div>
-            hi
+      <div className="drawer drawer-end drawer-mobile mt-20">
+        <input
+          id="dashboard-sidebar"
+          type="checkbox"
+          className="drawer-toggle"
+        />
+        <div className="drawer-content">
+          
+          <h2 className="text-2xl mx-auto text-center font-bold text-purple-500">
+            Welcome to your Dashboard
+          </h2>
+          <Outlet></Outlet>
         </div>
+        <div className="drawer-side">
+          <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
+          <ul className="menu p-4 overflow-y-auto gap-2 w-50 bg-primary rounded text-base-content">
+            {/* <!-- Sidebar content here --> */}
+            <li className="font-bold">
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            {/* {!admin && ( */}
+            <>
+              <li className="font-bold">
+                <Link to="/dashboard/myOrders">All Requested Club&Forum</Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/dashboard/addReviews">Request for Room Booking</Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/dashboard/addReviews">Add new Event</Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/dashboard/addReviews">Add News</Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/dashboard/addReviews">Add New Blogs</Link>
+              </li>
+            </>
+            {/* )} */}
+
+            {/* admin role only */}
+
+            {/* {admin && ( */}
+            <>
+              <li className="font-bold">
+                <Link to="/dashboard/makeAdmin">Make Admin</Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/dashboard/manageOrder">Manage All Orders</Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/dashboard/addProduct">Add A Product</Link>
+              </li>
+              <li className="font-bold">
+                <Link to="/dashboard/manageProducts">Manage Products</Link>
+              </li>
+            </>
+            {/* )} */}
+          </ul>
+        </div>
+      </div>
+      
     );
 };
 

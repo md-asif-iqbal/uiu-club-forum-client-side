@@ -2,18 +2,23 @@ import React from "react";
 import { useState } from "react";
 import { calculateTimeLeft } from "./TimeCount/utils";
 import { useEffect } from "react";
-
-const EventsBanner = () => {
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-    useEffect(() => {
-      setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
-    }, [timeLeft]);
+const EventsBanner = ({ data }) => {
+  const [ids, setIds] = useState();
+  
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  useEffect(() => {
+    setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
+  }, [timeLeft]);
+  const { title, date, _id, venue } = data;
+ 
+  console.log(_id);
   return (
     <div>
       <div className="relative ">
-        <div className="">
+        <div className="blur-sm">
           <img
-            src="https://radiustheme.com/demo/wordpress/eventalk/wp-content/uploads/2018/07/l-slide1-2.jpg"
+            className="w-full max-h-screen"
+            src="https://pbs.twimg.com/media/FGbfXWJVcAUejpR.jpg"
             alt=""
           />
         </div>
@@ -23,11 +28,9 @@ const EventsBanner = () => {
               <div className="">
                 <div className="text-white w-full px-5 md:w-auto text-center mb-10">
                   <h4 className="text-xl">
-                    17 - 25 October 2022 | Tobacco Dock, London
+                    {date} | {venue}
                   </h4>
-                  <h1 className="font-extrabold text-5xl">
-                    Marketing Conferencee 2022
-                  </h1>
+                  <h1 className="font-extrabold text-5xl">{title}</h1>
                 </div>
                 <div className="w-full px-5 md:w-auto">
                   <div className="flex justify-center text-center text-white">
@@ -68,29 +71,23 @@ const EventsBanner = () => {
                 <div className="text-center mt-8">
                   <label
                     type="register"
-                    htmlFor="my-modal-3"
+                    htmlFor={_id}
                     className="border border-yellow-400 p-3 px-5 rounded hover:bg-yellow-400 hover:text-black font-bold text-yellow-400"
                   >
                     Register Now
                   </label>
-                  {/* Put this part before </body> tag */}
-                  <input
-                    type="checkbox"
-                    id="my-modal-3"
-                    className="modal-toggle"
-                  />
-                  <div className="modal">
-                    <div className="modal-box relative">
+
+                  <input type="checkbox" id={_id} className="modal-toggle" />
+                  <div className="modal bg-transparent -mt-96 top-0 ">
+                    <div className="modal-box relative  -mt-96">
                       <label
-                        htmlFor="my-modal-3"
+                        htmlFor={_id}
                         className="btn btn-sm btn-circle absolute right-2 top-2"
                       >
                         ✕
                       </label>
-                      <h3 className="text-lg font-bold">
-                        Marketing Conferencee Registation
-                      </h3>
-                      <h4> For Volunteer</h4>
+                      <h3 className="text-lg font-bold">{title}</h3>
+                      <h4> For Participant Or Volunteer</h4>
                       <div className="w-full mb-8">
                         <div className="form-control w-full max-w-xs mx-auto ">
                           <label className="label">
@@ -131,7 +128,7 @@ const EventsBanner = () => {
                       </div>
                       <label
                         type="register"
-                        htmlFor="my-modal-3"
+                        htmlFor={_id}
                         className="border border-yellow-400 p-3 px-10 rounded hover:bg-yellow-400 hover:text-black font-bold text-yellow-400"
                       >
                         Register

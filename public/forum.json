@@ -34,3 +34,25 @@
     }
     
 ]
+
+// [
+//  {
+//   "title":"Carrer Lab- 12",
+//   "speaker":"Mr. Ahmed Fuad",
+//   "speaker-img":"https://static.vecteezy.com/system/resources/previews/014/300/071/non_2x/man-speaker-talking-into-microphones-at-podium-tribune-official-person-in-suit-during-public-speech-communication-with-people-vector.jpg",
+
+//   "venue":"United Internatoinal University, room-224",
+//   "date":"10th April, 2023",
+//   "img":"https://www.uiu.ac.bd/wp-content/uploads/2023/04/Banner_FB.jpg",
+//   "details":"A program, namely ‘Career Lab- 12’ organized by UIU Directorate of Career Counseling & Student Affairs (UIU DCCSA) is going to be held on Monday, 10 April 2023 in Room # 224.The objective of the program is to create career consciousness and develop some basic skills among the students of UIU."
+//  },
+//  {
+//   "title":"Workshop On Git and Github",
+//   "speaker":"Mr. Akib Zaman",
+//   "speaker-img":"https://png.pngitem.com/pimgs/s/47-475718_speaker-rubber-stamp-man-speaker-icon-png-transparent.png",
+//   "venue":"UIU Multipurpose Hall",
+//   "date":"7th March, 2023",
+//   "img":"https://www.uiu.ac.bd/wp-content/uploads/2023/03/334428630_1212647472688497_7779634406808360430_n.jpg",
+//   "details":"UIU Computer Club (UIUCCL), one of the leading clubs of Directorate of Career Counseling and Student Affairs (DCCSA) of United International University (UIU), is going to organize a workshop on ‘Git and Github’. This workshop will help the students to learn how to streamline workflow, easily manage code changes and collaborate with teammates. Students will also gain hands-on experience in exploring the powerful features of Git and GitHub, including version control, branching, merging and pull requests. With the instructor’s guidance, students will learn how to maximize the collaborative potential of GitHub, from reviewing code to contributing to open-source projects."
+//  }
+// ]
