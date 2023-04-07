@@ -22,6 +22,7 @@ import ClubActivitys from "./Pages/Users/CLub&Forum/Club/ClubActivitys";
 import AllShortcut from "./Pages/Admin/Login/Dashboard/AllShortcut";
 import RequestListClubForum from "./Pages/Admin/Login/Dashboard/RequestListClubForum";
 import RequestForRoomBook from "./Pages/Admin/Login/Dashboard/RequestForRoomBook";
+import VolunteerRequest from "./Pages/Admin/Login/Dashboard/VolunteerRequest";
 
 function App() {
   return (
@@ -56,6 +57,10 @@ function App() {
           <Route
             path="/Dashboard/request-for-room-booking"
             element={<RequestForRoomBook />}
+          ></Route>
+          <Route
+            path="/Dashboard/volunteerRequest"
+            element={<VolunteerRequest />}
           ></Route>
         </Route>
       </Routes>
