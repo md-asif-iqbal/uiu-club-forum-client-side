@@ -1,4 +1,7 @@
+import "react-toastify/dist/ReactToastify.css";
+
 import { Route, Routes } from "react-router-dom";
+
 import Dashboard from "./Pages/Admin/Login/Dashboard/Dashboard";
 import Login from "./Pages/Shared/Account/Login";
 import Registation from "./Pages/Shared/Account/Registation";
@@ -46,8 +49,14 @@ function App() {
         ></Route>
         <Route path="/Dashboard" element={<Dashboard />}>
           <Route index element={<AllShortcut />}></Route>
-          <Route path ="/Dashboard/all-requested-club-forum" element={<RequestListClubForum/>}></Route>
-          <Route path ="/Dashboard/request-for-room-booking" element={<RequestForRoomBook/>}></Route>
+          <Route
+            path="/Dashboard/all-requested-club-forum"
+            element={<RequestListClubForum />}
+          ></Route>
+          <Route
+            path="/Dashboard/request-for-room-booking"
+            element={<RequestForRoomBook />}
+          ></Route>
         </Route>
       </Routes>
       <Footer />

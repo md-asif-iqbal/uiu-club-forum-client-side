@@ -2,16 +2,54 @@ import React from "react";
 import { useState } from "react";
 import { calculateTimeLeft } from "./TimeCount/utils";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+
 const EventsBanner = ({ data }) => {
-  const [ids, setIds] = useState();
-  
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   useEffect(() => {
     setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
   }, [timeLeft]);
   const { title, date, _id, venue } = data;
- 
-  console.log(_id);
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
+  const onSubmit = async (event) => {
+    const eventName = title;
+    const name = event.name;
+    const studentID = event.studentID;
+    const phoneNumber = event.phoneNumber;
+    const post = { eventName, name, studentID, phoneNumber };
+
+    console.log(post);
+    const url = `http://localhost:8000/eventRegistration`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(post),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("🎉 Congrats , your Registration is Complete!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        reset();
+      });
+  };
+
   return (
     <div>
       <div className="relative ">
@@ -88,55 +126,113 @@ const EventsBanner = ({ data }) => {
                       </label>
                       <h3 className="text-lg font-bold">{title}</h3>
                       <h4> For Participant Or Volunteer</h4>
-                      <div className="w-full mb-8">
-                        <div className="form-control w-full max-w-xs mx-auto ">
-                          <label className="label">
-                            <span className="label-text">
-                              What is your name?
-                            </span>
-                          </label>
-                          <input
-                            type="text"
-                            placeholder="Type here"
-                            className="input input-bordered w-full max-w-xs mx-auto "
-                          />
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="w-full mb-8">
+                          <div className="form-control w-full max-w-xs mx-auto ">
+                            <label className="label">
+                              <span className="label-text">
+                                What is your name?
+                              </span>
+                            </label>
+                            <input
+                              type="text"
+                              placeholder="Type here"
+                              className="input input-bordered w-full max-w-xs mx-auto "
+                              {...register("name", {
+                                required: {
+                                  value: true,
+                                  message: "Name is Required",
+                                },
+                              })}
+                            />
+                            <label className="label">
+                              {errors.name?.type === "required" && (
+                                <span className="label-text-alt text-red-500">
+                                  {errors.name.message}
+                                </span>
+                              )}
+                            </label>
+                          </div>
+                          <div className="form-control w-full max-w-xs mx-auto ">
+                            <label className="label">
+                              <span className="label-text">
+                                What is your student ID?
+                              </span>
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="Type here"
+                              className="input input-bordered w-full max-w-xs"
+                              {...register("studentID", {
+                                required: {
+                                  value: true,
+                                  minLength: 2,
+                                  maxLength: 5,
+                                  message: "Student ID is Required",
+                                },
+                              })}
+                            />
+                            <label className="label">
+                              {errors.studentID?.type === "required" && (
+                                <span className="label-text-alt text-red-500">
+                                  {errors.studentID.message}
+                                </span>
+                              )}
+                            </label>
+                          </div>
+                          <div className="form-control w-full max-w-xs mx-auto ">
+                            <label className="label">
+                              <span className="label-text">
+                                What is your Number?
+                              </span>
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="Type here"
+                              className="input input-bordered w-full max-w-xs"
+                              {...register("phoneNumber", {
+                                required: {
+                                  value: true,
+                                  minLength: 2,
+                                  maxLength: 5,
+
+                                  message: "phone Number is Required",
+                                },
+                              })}
+                            />
+                            <label className="label">
+                              {errors.phoneNumber?.type === "required" && (
+                                <span className="label-text-alt text-red-500">
+                                  {errors.phoneNumber.message}
+                                </span>
+                              )}
+                            </label>
+                          </div>
                         </div>
-                        <div className="form-control w-full max-w-xs mx-auto ">
-                          <label className="label">
-                            <span className="label-text">
-                              What is your student ID?
-                            </span>
-                          </label>
-                          <input
-                            type="number"
-                            placeholder="Type here"
-                            className="input input-bordered w-full max-w-xs"
-                          />
-                        </div>
-                        <div className="form-control w-full max-w-xs mx-auto ">
-                          <label className="label">
-                            <span className="label-text">
-                              What is your Number?
-                            </span>
-                          </label>
-                          <input
-                            type="number"
-                            placeholder="Type here"
-                            className="input input-bordered w-full max-w-xs"
-                          />
-                        </div>
-                      </div>
-                      <label
-                        type="register"
-                        htmlFor={_id}
-                        className="border border-yellow-400 p-3 px-10 rounded hover:bg-yellow-400 hover:text-black font-bold text-yellow-400"
-                      >
-                        Register
-                      </label>
+                        <button
+                          type="submit"
+                          className="border border-yellow-400 p-3 px-10 rounded hover:bg-yellow-400 hover:text-black font-bold text-yellow-400"
+                        >
+                          Register
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
+              <ToastContainer
+                className="mt-96"
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+              />
             </div>
           </section>
         </div>
