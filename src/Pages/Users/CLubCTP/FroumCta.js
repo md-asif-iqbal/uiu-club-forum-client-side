@@ -9,10 +9,10 @@ const FroumCta = () => {
                 </div>
                 <div className="flex justify-center items-start flex-col xl:w-2/5 md:w-5/12 xl:px-7 px-6 md:px-0 md:py-0 py-5">
                     <div>
-                        <p className="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800">Act before it’s too late!</p>
+                        <p className="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800">Develop Your Soft Skills</p>
                     </div>
                     <div className="xl:mt-4 mt-2">
-                        <p className="text-base xl:text-xl leading-7 text-gray-600 pr-4">Furniture that looks modern and is comfortable as well. Avail the 50% offer now.</p>
+                        <p className="text-base xl:text-xl leading-7 text-gray-600 pr-4">Participating in a club not only teaches the extra knowledge but also you will learn the best way to communicate with large groups.</p>
                         <div>
                             <button className='mt-6 shrink-0 w-full md:w-auto  lg:mt-8 py-2 md:py-3 px-10 flex justify-center duration-700  items-center text-base border-2 border-primary transition hover:-translate-y-1 hover:bg-primary hover:text-white font-medium text-primary'>Join Forum</button>
                         </div>
