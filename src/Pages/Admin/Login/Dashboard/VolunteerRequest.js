@@ -3,8 +3,8 @@ import React from 'react';
 const VolunteerRequest = () => {
     return (
         <div>
-            <h1>All Volunteer Request</h1>
-            <section className="container mx-auto p-6 font-mono mt-10">
+            <h1 className='text-xl font-bold text-center mt-5'>All Volunteer Request</h1>
+            <section className="container mx-auto p-6 font-mono mt-5">
           <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div className="w-full overflow-x-auto">
               <table className="w-full">
