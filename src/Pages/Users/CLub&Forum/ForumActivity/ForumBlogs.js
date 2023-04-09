@@ -1,48 +1,59 @@
 import React from 'react';
 import Card from '../Card/Card';
 import "./ForumBlogs.css"
+import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
+import { useState } from 'react';
+import { HiPencilAlt } from 'react-icons/hi';
+import BlogPost from '../../../DynamicPages/DynamicForum/BlogPost';
 const ForumBlogs = () => {
-    const properties = [
-      {
-        decImg:
-          "https://salessupportafrica.com/wp-content/uploads/2020/01/events-4.jpg",
-        title: "Events - Sales Support Africa - Sales Support Africa",
-        "title-code": "corporate",
-        text: "For all professionals looking to boost their career or network with like-minded persons, attending the Sales Support Africa events should be key. These events include seminars and conferences on relevant industry topics in a relaxed and engaging environment.",
-        date: "01-01-2022",
-      },
-      {
-        decImg:
-          "https://technofaq.org/wp-content/uploads/2020/07/corporate-events.jpg",
-        title: "Corporate Event Trends for Memorable Business Branding",
-        "title-code": "corporate",
-        text: "Branding is at the core of almost every corporate event a company organizes. Be it a conference, lunch, sporting event, corporate meet, or even a simple employee engagement activity – every event has one goal, which is to promote a brand or the culture of a company.",
-        date: "10-01-2022",
-      },
-      {
-        decImg:
-          "https://a3cubeeventsindia.com/assets/frontend/images/event-gallery/corporat-1.jpg",
-        title: "Corporate Event : A3cube Events",
-        "title-code": "corporate",
-        text: "A fully serviced Corporate Event Planners with over the line experience and top notch luxury feels creating any kind of atmosphere or look you wish to design. Leave all your worries to us and concentrate on the business side of your event, where your actual focus should be",
-        date: "15-01-2022",
-      },
-      
-    
-    ];
-    return (
-      <section className="">
-        <div className="">
-          <div className="Appes ">
-            <div className="propertiest grid grid-cols-1 lg:grid-cols-3 ">
-              {properties.map((item) => (
-                <Card data={item} key={item.date} />
-              ))}
-            </div>
+  const [user] = useAuthState(auth)
+  const [blog, setBlog] = useState([])
+  console.log(blog);
+  useEffect(() => {
+    const email = user?.email
+    const url = `http://localhost:8000/myBlog?email=${email}`;
+    fetch(url, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => setBlog(data));
+  }, [user]);
+  const [, setCancle] = useState(false);
+  const crossHandle = () => {
+    setCancle(false)
+  }
+  return (
+    <section className="">
+      <div className=" relative">
+        <div className="Appes ">
+          <div className="propertiest grid grid-cols-1 lg:grid-cols-3 ">
+            {blog.map((item) => (
+              <Card data={item} key={item.date} />
+            ))}
           </div>
         </div>
-      </section>
-    );
+        <div>
+          {
+            user?.email && <div className="absolute bottom-0 right-2">
+              <label htmlFor="my-modal-6" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
+                <HiPencilAlt className="mr-3 text-xl" />
+                Blog Post
+              </h1></label>
+              <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+              <div className="modal md:pt-10 pt-40 w-full overflow-scroll">
+                <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-black h-auto">
+                  <label htmlFor="my-modal-6" onClick={crossHandle} className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold">✕</label>
+                  <BlogPost />
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ForumBlogs;
