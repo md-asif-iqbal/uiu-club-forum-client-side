@@ -1,9 +1,32 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { HiPencilAlt } from "react-icons/hi";
+import PostFaq from "../../DynamicPages/DynamicForum/PostFaq";
 
 const ForumFAQ = () => {
+  const [user] = useAuthState(auth);
+  const [, setCancle] = useState(false);
+  const crossHandle = () => {
+    setCancle(false)
+  }
+
+  const [faq, setFaq] = useState([])
+  console.log(faq);
+  useEffect(() => {
+    const email = user?.email
+    const url = `http://localhost:8000/myfaq?email=${email}`;
+    fetch(url, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => setFaq(data));
+  }, [user]);
   return (
     <div>
-      <div>
+      <div className="relative">
         <section className="text-gray-700">
           <div className="container px-5 py-24 mx-auto">
             <div className="text-center mb-20">
@@ -16,79 +39,40 @@ const ForumFAQ = () => {
               </p>
             </div>
             <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-              <div className="w-full lg:w-1/2 px-4 py-2">
-                <details className="mb-4">
-                  <summary className="font-semibold   rounded-md  cursor-pointer py-2 px-4">
-                    How Long is this site live?
-                  </summary>
+              <div className="w-full lg:w-8/12 px-4 mx-auto py-2 grid grid-cols-2 justify-between">
+                {
+                  faq.map(item => <details key={item._id} className="mb-4">
+                    <summary className="font-semibold   rounded-md  cursor-pointer py-2 px-4">
+                      {item.ques}
+                    </summary>
 
-                  <span>
-                    Laboris qui labore cillum culpa in sunt quis sint veniam.
-                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                    minim velit nostrud pariatur culpa magna in aute.
-                  </span>
-                </details>
-                <details className="mb-4">
-                  <summary className="font-semibold  rounded-md cursor-pointer  py-2 px-4">
-                    Can I install/upload anything I want on there?
-                  </summary>
+                    <span>
+                      {item.ans}
+                    </span>
+                  </details>)
+                }
 
-                  <span>
-                    Laboris qui labore cillum culpa in sunt quis sint veniam.
-                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                    minim velit nostrud pariatur culpa magna in aute.
-                  </span>
-                </details>
-                <details className="mb-4">
-                  <summary className="font-semibold   rounded-md cursor-pointer  py-2 px-4">
-                    How can I migrate to another site?
-                  </summary>
-
-                  <span>
-                    Laboris qui labore cillum culpa in sunt quis sint veniam.
-                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                    minim velit nostrud pariatur culpa magna in aute.
-                  </span>
-                </details>
-              </div>
-              <div className="w-full lg:w-1/2 px-4 py-2">
-                <details className="mb-4">
-                  <summary className="font-semibold   rounded-md cursor-pointer  py-2 px-4">
-                    Can I change the domain you give me?
-                  </summary>
-
-                  <span className="px-4 py-2">
-                    Laboris qui labore cillum culpa in sunt quis sint veniam.
-                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                    minim velit nostrud pariatur culpa magna in aute.
-                  </span>
-                </details>
-                <details className="mb-4">
-                  <summary className="font-semibold   rounded-md cursor-pointer  py-2 px-4">
-                    How many sites I can create at once?
-                  </summary>
-
-                  <span className="px-4 py-2">
-                    Laboris qui labore cillum culpa in sunt quis sint veniam.
-                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                    minim velit nostrud pariatur culpa magna in aute.
-                  </span>
-                </details>
-                <details className="mb-4">
-                  <summary className="font-semibold   rounded-md cursor-pointer  py-2 px-4">
-                    How can I communicate with you?
-                  </summary>
-
-                  <span className="px-4 py-2">
-                    Laboris qui labore cillum culpa in sunt quis sint veniam.
-                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                    minim velit nostrud pariatur culpa magna in aute.
-                  </span>
-                </details>
               </div>
             </div>
           </div>
         </section>
+        <div>
+          {
+            user?.email && <div className="absolute bottom-10 right-10">
+              <label htmlFor="my-modal-8" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
+                <HiPencilAlt className="mr-3 text-xl" />
+                Post Faq
+              </h1></label>
+              <input type="checkbox" id="my-modal-8" className="modal-toggle" />
+              <div className="modal md:pt-10 pt-40 w-full overflow-scroll">
+                <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-black h-auto">
+                  <label htmlFor="my-modal-8" onClick={crossHandle} className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold">✕</label>
+                  <PostFaq />
+                </div>
+              </div>
+            </div>
+          }
+        </div>
       </div>
     </div>
   );

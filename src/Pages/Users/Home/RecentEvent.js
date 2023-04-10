@@ -45,7 +45,7 @@ const RecentEvent = () => {
         className="mySwiper"
       >
         <div className="">
-          {recentEvents.map((item) => (
+          {recentEvents?.map((item) => (
             <>
               <SwiperSlide>
                 <div className="flex flex-col mx-auto  pb-16 ">
