@@ -33,7 +33,7 @@ const RecentEvent = () => {
         Our Awesome Events
       </h1>
       <Swiper
-        slidesPerView={1}
+        slidesPerView={3}
         autoplay={{
           delay: 6000,
           disableOnInteraction: false,
