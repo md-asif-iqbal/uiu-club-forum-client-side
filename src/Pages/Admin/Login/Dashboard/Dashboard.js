@@ -48,17 +48,9 @@ const Dashboard = () => {
             {/* {admin && ( */}
             <>
               <li className="font-bold">
-                <Link to="/dashboard/makeAdmin">Make Admin</Link>
-              </li>
-              <li className="font-bold">
                 <Link to="/dashboard/volunteerRequest">Manage All Volunteer Request</Link>
               </li>
-              <li className="font-bold">
-                <Link to="/dashboard/addProduct">Add A Product</Link>
-              </li>
-              <li className="font-bold">
-                <Link to="/dashboard/manageProducts">Manage Products</Link>
-              </li>
+              
             </>
             {/* )} */}
           </ul>

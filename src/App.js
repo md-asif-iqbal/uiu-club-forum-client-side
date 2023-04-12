@@ -25,7 +25,34 @@ import RequestForRoomBook from "./Pages/Admin/Login/Dashboard/RequestForRoomBook
 import VolunteerRequest from "./Pages/Admin/Login/Dashboard/VolunteerRequest";
 import Main from "./Utilities/Main";
 
+import AllVolunteerRequest from "./Pages/Admin/Login/Dashboard/AllVolunteerRegiseraton";
+import { useQuery } from "react-query";
+import Loading from "./Pages/Shared/Loading/Loading";
+
 function App() {
+
+
+
+   const url = `http://localhost:8000/eventRegistration`;
+   const {
+     data: datas,
+     isLoading,
+     refetch,
+   } = useQuery(["data"], () =>
+     fetch(url, {
+       method: "GET",
+     }).then((res) => res.json())
+   );
+   if (isLoading ) {
+     return <Loading></Loading>;
+   }
+   const divideData = (param = "") => {
+     const data = datas;
+     const mainData = data.filter((item) => {
+       return item.eventName === param;
+     });
+     return mainData;
+   };
 
   const router = createBrowserRouter([
     {
@@ -108,6 +135,26 @@ function App() {
             {
               path: "/Dashboard/request-for-room-booking",
               element: <RequestForRoomBook />,
+            },
+            {
+              path: "/Dashboard/volunteerRequest",
+              element: <AllVolunteerRequest  />,
+              children: [
+                {
+                  path: "/Dashboard/volunteerRequest/:ID",
+                  loader: async ({ params }) => {
+                    return divideData(params.ID);
+                  },
+                  element: <VolunteerRequest />,
+                },
+                {
+                  path: "/Dashboard/volunteerRequest",
+                  loader: async () => {
+                    return datas;
+                  },
+                  element: <VolunteerRequest />,
+                },
+              ],
             },
           ],
         },
