@@ -31,6 +31,13 @@ const Dashboard = () => {
                   Request for Room Booking
                 </Link>
               </li>
+              <>
+                <li className="font-bold">
+                  <Link to="/dashboard/volunteerRequest">
+                    Manage All Volunteer Request
+                  </Link>
+                </li>
+              </>
               <li className="font-bold">
                 <Link to="/dashboard/addReviews">Add new Event</Link>
               </li>
@@ -38,7 +45,7 @@ const Dashboard = () => {
                 <Link to="/dashboard/addReviews">Add News</Link>
               </li>
               <li className="font-bold">
-                <Link to="/dashboard/addReviews">Add New Blogs</Link>
+                <Link to="/Dashboard/add-new-blogs">Add New Blogs</Link>
               </li>
             </>
             {/* )} */}
@@ -46,12 +53,7 @@ const Dashboard = () => {
             {/* admin role only */}
 
             {/* {admin && ( */}
-            <>
-              <li className="font-bold">
-                <Link to="/dashboard/volunteerRequest">Manage All Volunteer Request</Link>
-              </li>
-              
-            </>
+
             {/* )} */}
           </ul>
         </div>

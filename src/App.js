@@ -28,6 +28,7 @@ import Main from "./Utilities/Main";
 import AllVolunteerRequest from "./Pages/Admin/Login/Dashboard/AllVolunteerRegiseraton";
 import { useQuery } from "react-query";
 import Loading from "./Pages/Shared/Loading/Loading";
+import AddNewBlogs from "./Pages/Admin/Login/Dashboard/AddNewBlogs";
 
 function App() {
 
@@ -135,6 +136,10 @@ function App() {
             {
               path: "/Dashboard/request-for-room-booking",
               element: <RequestForRoomBook />,
+            },
+            {
+              path: "/Dashboard/add-new-blogs",
+              element: <AddNewBlogs />,
             },
             {
               path: "/Dashboard/volunteerRequest",
