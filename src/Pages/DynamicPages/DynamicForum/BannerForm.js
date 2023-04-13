@@ -29,7 +29,7 @@ const BannerForm = () => {
                         title: data.title,
                         shortTitle: data.shTitle,
                     };
-                    fetch(`http://localhost:8000/user/update/${user?.email}`, {
+                    fetch(`http://localhost:8000/user/service/${user?.email}`, {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json",

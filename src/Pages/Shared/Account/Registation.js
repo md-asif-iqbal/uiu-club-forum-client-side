@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useForm } from 'react-hook-form';
 import Loading from '../Loading/Loading';
+import useToken from '../../../Hooks/UseToken';
 
 
 const Registation = () => {
@@ -19,6 +20,8 @@ const Registation = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const { register, reset, handleSubmit, watch, formState: { errors } } = useForm();
   let errorMessage;
+
+  const [token] = useToken(user)
   if (error || updateError) {
     return (
       <>
@@ -42,17 +45,21 @@ const Registation = () => {
       </>
     )
   }
-  const onSubmit= async (data) => {
-    const name = data?.name;
+
+  console.log(updateProfile);
+  const onSubmit = async (data) => {
+    const displayName = data?.displayName;
     const email = data?.email;
     const password = data?.password;
     const confirm = data?.confirmPassword;
     if (password === confirm) {
       await createUserWithEmailAndPassword(email, password);
-      await updateProfile({ displayName: name });
+      await updateProfile({ displayName: displayName });
     }
     reset()
   };
+
+
   return (
     <form className="sign-up-form font-mono" onSubmit={handleSubmit(onSubmit)}>
       <p className='text-red-500'>{errorMessage}</p>
@@ -60,7 +67,7 @@ const Registation = () => {
         {errors.name?.type === 'required' && <span>{errors.name.message}</span>}
       </p>
       <div className="input-field">
-        <input type="text" placeholder="Enter Your Name"  {...register("name", {
+        <input type="text" placeholder="Enter Your Name"  {...register("displayName", {
           required: {
             value: true,
             message: 'Full Name is required*'
@@ -110,7 +117,7 @@ const Registation = () => {
           },
         })} />
       </div>
-      <input type="submit"className="BtnPurple hover:text-black mt-4"  value="JOIN US" />
+      <input type="submit" className="BtnPurple hover:text-black mt-4" value="JOIN US" />
       <div className="divider text-primary w-7/12 mx-auto">Or</div>
     </form>
 

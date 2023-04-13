@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import CustomLink from "../../../Component/CustomLink";
 import auth from "../../../firebase.init";
+import UseService from "../../../Hooks/UseService";
 const DeskhNav = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
@@ -11,6 +12,13 @@ const DeskhNav = () => {
     signOut(auth);
     navigate("/login");
   };
+
+  const [service] = UseService()
+  console.log(service);
+
+  const navigateDetails = (id) => {
+    navigate(`/service/${id}`);
+}
   const navigation = (
     <>
       <li className=" dark:text-[#6B707F]  text-black hover:border-b-[1px] border-[#64CEE6] text-lg cursor-pointer">
@@ -39,7 +47,7 @@ const DeskhNav = () => {
           News
         </CustomLink>
       </li>
-      <li className=" dark:text-[#6B707F]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
+      <li className=" dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
         <CustomLink
           to="/Club"
           className="transition-all text-lg duration-300 font-semibold"
@@ -47,13 +55,22 @@ const DeskhNav = () => {
           Clubs
         </CustomLink>
       </li>
-      <li className=" dark:text-[#6B707F]  hover:border-b-[1px] border-[#64CEE6] text-black  cursor-pointer uppercase">
-        <CustomLink
-          to="/Forum"
-          className="transition-all text-lg duration-300 font-semibold"
-        >
-          Forums
-        </CustomLink>
+      <li className='dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase'>
+        <div className="dropdown dropdown-hover">
+          <label tabIndex={0} className="transition-all text-lg duration-300 font-semibold">Forum</label>
+          <ul tabIndex={0} className="dropdown-content menu -ml-20 pt-4 shadow bg-primary/20 rounded-box w-72">
+            <li className="mx-auto">
+              {
+                service.map(item => <div
+                  onClick={() => navigateDetails(item._id)} 
+                  className="transition-all text-sm duration-300 text-secondary font-semibold"
+                >
+                  {item.serviceName}
+                </div>)
+              }
+            </li>
+          </ul>
+        </div>
       </li>
       <li>
         {user ? (

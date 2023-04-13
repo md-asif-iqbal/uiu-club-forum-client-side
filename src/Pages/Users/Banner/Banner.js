@@ -3,7 +3,11 @@ import { ImSearch } from 'react-icons/im';
 import bg from '../../../Assets/background/building.png'
 import bord from '../../../Assets/background/bord.png'
 import flowr from '../../../Assets/background/flower.png'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 const Banner = () => {
+  const [user] = useAuthState(auth)
+  console.log(user);
   return (
     <div className='bg-[#DAF6FC] md:pt-60 pt-40 h-screen relative'>
       <div><h1 className='md:text-4xl text-3xl font-bold capitalize text-[#1D2746] text-center'>Hello, what can we help you find?</h1>

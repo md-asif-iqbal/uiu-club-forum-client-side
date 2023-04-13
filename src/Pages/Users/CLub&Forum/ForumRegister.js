@@ -11,7 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { HiPencilAlt } from "react-icons/hi";
 import AboutForm from "../../DynamicPages/DynamicForum/AboutForm";
-const ForumRegister = () => {
+const ForumRegister = ({ serviceId }) => {
   const stripePromise = loadStripe(
     "pk_test_51LXS98B5Y3AeAE8iNY0Hgf4QUbKwQQVuUk1NqhUhbNZ1UhjYvdE5UJw3DnEJBLmlWBgFqKIjfXEnVZujomnNCAyo00kHESTAcf"
   );
@@ -23,7 +23,7 @@ const ForumRegister = () => {
       id: 2,
     },
   ];
-  console.log(mcq.length);
+
   const [activeStep, setActiveStep] = useState(0);
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -129,7 +129,7 @@ const ForumRegister = () => {
 
         <div className="md:hidden mt-6 w-full">
           <img
-            src={joinUS}
+            src={serviceId.aboutImg ? serviceId?.aboutImg : joinUS}
             alt="pexels-dmitry-zvolskiy-2082090-1"
             className="w-full"
           />
@@ -143,13 +143,12 @@ const ForumRegister = () => {
           <div className="flex justify-center items-start flex-col xl:w-2/5 md:w-5/12 xl:px-7 px-6 md:px-0 md:py-0 py-5">
             <div>
               <p className="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800">
-                Act before it’s too late!
+                {serviceId?.abtitle ? serviceId?.abtitle : "Act before it’s too late!"}
               </p>
             </div>
             <div className="xl:mt-4 mt-2 relative">
               <p className="text-base xl:text-xl leading-7 text-gray-600 pr-4">
-                Furniture that looks modern and is comfortable as well. Avail the
-                50% offer now.
+                {serviceId?.abDescr ? serviceId?.abDescr : "Furniture that looks modern and is comfortable as well. Avail the 50% offer now."}
               </p>
               <div>
                 {/* The button to open modal */}
@@ -222,7 +221,7 @@ const ForumRegister = () => {
               alt="pexels-dmitry-zvolskiy-2082090-1-1"
             />
             {
-              user?.email && <div className="absolute bottom-0 right-2">
+              user?.email === serviceId?.email ? <div className="absolute bottom-0 right-2">
                 <label htmlFor="my-modal-5" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-black py-2 px-3 border-black border-2">
                   <HiPencilAlt className="mr-3 text-xl" />
                   Edit
@@ -234,7 +233,7 @@ const ForumRegister = () => {
                     <AboutForm />
                   </div>
                 </div>
-              </div>
+              </div> : " "
             }
           </div>
         </div>
