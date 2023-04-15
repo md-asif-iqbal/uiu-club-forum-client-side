@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { ImSearch } from "react-icons/im";
-import bg from "../../../Assets/background/forumBG.png";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { HiPencilAlt } from 'react-icons/hi';
 import BannerForm from '../../DynamicPages/DynamicForum/BannerForm';
-
-const ForumBanner = () => {
+const ForumBanner = ({ serviceId }) => {
   const [, setCancle] = useState(false);
   const crossHandle = () => {
     setCancle(false)
   }
+  console.log(serviceId);
   const [user] = useAuthState(auth);
+
   return (
     <div>
       <div>
@@ -19,16 +19,16 @@ const ForumBanner = () => {
           <div className=" hidden md:block">
             <img
               className="absolute opacity-50 -mb-11 w-full bottom-0"
-              src={bg}
+              src={serviceId?.bannerBg}
               alt=""
             />
           </div>
           <div className="relative overflow-hidden mx-auto">
             <h1 className="md:text-4xl text-3xl  font-bold capitalize text-[#1D2746] text-center">
-              WELCOME TO Human Resource FORUM
+              {serviceId?.title}
             </h1>
             <h2 className="text-xl text-center mx-auto capitalize text-black md:w-5/12 my-7 w-9/12">
-              The most popular forum on the internet!
+              {serviceId?.shortTitle}
             </h2>
           </div>
           <div className="relative overflow-hidden md:w-5/12 w-11/12 p-0 mx-auto">
@@ -45,7 +45,7 @@ const ForumBanner = () => {
         </div>
       </div>
       {
-        user?.email && <div className="absolute bottom-10 right-10">
+        user?.email === serviceId?.email ? <div className="absolute bottom-10 right-10">
           <label htmlFor="my-modal-4" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-black py-2 px-3 border-black border-2">
             <HiPencilAlt className="mr-3 text-xl" />
             Edit
@@ -57,7 +57,7 @@ const ForumBanner = () => {
               <BannerForm />
             </div>
           </div>
-        </div>
+        </div> : ""
       }
     </div>
   );

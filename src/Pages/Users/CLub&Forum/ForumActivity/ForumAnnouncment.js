@@ -9,26 +9,31 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper";
 import { useEffect } from "react";
-const ForumAnnouncment = () => {
+const ForumAnnouncment = ({ serviceId }) => {
   const [user] = useAuthState(auth);
   const [, setCancle] = useState(false);
   const crossHandle = () => {
     setCancle(false)
   }
 
+
   const [announcment, setAnnouncment] = useState([])
   console.log(announcment);
   useEffect(() => {
-    const email = user?.email
+    const email = serviceId?.email
     const url = `http://localhost:8000/myAnnouncment?email=${email}`;
     fetch(url, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => setAnnouncment(data));
-  }, [user]);
+  }, [serviceId]);
+
   return (
-    <div className=" relative">
+    <div className=" relative mt-20">
+      <h1 className="md:text-[110px] text-4xl absolute -z-10 md:left-1/4 top-8 text-[#f2eded89] text-center font-mono font-bold"> Announcment</h1>
+      <h1 className="text-xl text-center font-mono text-secondary font-semibold"> Our Announcment</h1>
+      <h1 className="text-4xl my-2 text-center mb-8 font-mono text-secondary font-semibold">Latest Awesome Announcment</h1>
       <div className="flex mt-5 mb-5">
         <Swiper
           slidesPerView={1}
@@ -44,20 +49,20 @@ const ForumAnnouncment = () => {
           className="mySwiper"
         >
           <div className="relative ">
-            {announcment.map(item => <SwiperSlide key={item._id}>
+            {announcment?.map(item => <SwiperSlide key={item?._id}>
               <div className="flex gap-5 flex-wrap w-7/12 py-4 m-auto bg-white shadow-2xl items-center mb-10">
                 <div
                   className=""
                 >
-                  <img  src={item.images} className="w-96 h-80" alt="" />
+                  <img src={item?.images} className="w-96 h-80" alt="" />
                 </div>
                 <div className="flex flex-col justify-between w-1/2 px-4 space-y-16">
                   <div>
                     <h1 className="mb-2 text-2xl font-bold leading-tight">
-                      {item.name}
+                      {item?.name}
                     </h1>
                     <p className="text-sm text-gray-700">
-                      {item.discript} </p>
+                      {item?.discript} </p>
                   </div>
                   <div>
                     <ul className="flex justify-center mt-4 space-x-3 text-xs text-gray-700">
@@ -101,7 +106,7 @@ const ForumAnnouncment = () => {
       </div>
       <div>
         {
-          user?.email && <div className="absolute bottom-0 right-10">
+          user?.email === serviceId.email ? <div className="absolute bottom-0 right-10">
             <label htmlFor="my-modal-6" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
               <HiPencilAlt className="mr-3 text-xl" />
               Post Announcment
@@ -113,7 +118,7 @@ const ForumAnnouncment = () => {
                 <PostAnnouncment />
               </div>
             </div>
-          </div>
+          </div> : " "
         }
       </div>
     </div>

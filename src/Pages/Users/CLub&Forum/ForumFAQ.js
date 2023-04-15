@@ -6,7 +6,7 @@ import auth from "../../../firebase.init";
 import { HiPencilAlt } from "react-icons/hi";
 import PostFaq from "../../DynamicPages/DynamicForum/PostFaq";
 
-const ForumFAQ = () => {
+const ForumFAQ = ({ serviceId }) => {
   const [user] = useAuthState(auth);
   const [, setCancle] = useState(false);
   const crossHandle = () => {
@@ -16,14 +16,16 @@ const ForumFAQ = () => {
   const [faq, setFaq] = useState([])
   console.log(faq);
   useEffect(() => {
-    const email = user?.email
+    const email = serviceId?.email
     const url = `http://localhost:8000/myfaq?email=${email}`;
     fetch(url, {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((data) => setFaq(data));
-  }, [user]);
+      .then(data => setFaq(data))
+  }, [serviceId]);
+
+  console.log(serviceId.email);
   return (
     <div>
       <div className="relative">
@@ -58,7 +60,7 @@ const ForumFAQ = () => {
         </section>
         <div>
           {
-            user?.email && <div className="absolute bottom-10 right-10">
+            user?.email === serviceId?.email ? <div className="absolute bottom-10 right-10">
               <label htmlFor="my-modal-8" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
                 <HiPencilAlt className="mr-3 text-xl" />
                 Post Faq
@@ -70,7 +72,7 @@ const ForumFAQ = () => {
                   <PostFaq />
                 </div>
               </div>
-            </div>
+            </div> : " "
           }
         </div>
       </div>

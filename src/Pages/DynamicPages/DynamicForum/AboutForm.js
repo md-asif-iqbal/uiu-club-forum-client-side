@@ -26,10 +26,10 @@ const AboutForm = () => {
                     const img = result.data.url;
                     const updateData = {
                         aboutImg: img,
-                        title: data.AbTitle,
-                        shortTitle: data.shortDesp,
+                        abtitle: data.AbTitle,
+                        abDescr: data.shortDesp,
                     };
-                    fetch(`http://localhost:8000/user/update/${user?.email}`, {
+                    fetch(`http://localhost:8000/user/service/${user?.email}`, {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json",

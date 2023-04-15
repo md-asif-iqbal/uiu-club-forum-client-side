@@ -7,36 +7,40 @@ import auth from '../../../../firebase.init';
 import { useState } from 'react';
 import { HiPencilAlt } from 'react-icons/hi';
 import BlogPost from '../../../DynamicPages/DynamicForum/BlogPost';
-const ForumBlogs = () => {
+const ForumBlogs = ({ serviceId }) => {
   const [user] = useAuthState(auth)
   const [blog, setBlog] = useState([])
   console.log(blog);
   useEffect(() => {
-    const email = user?.email
+    const email = serviceId?.email
     const url = `http://localhost:8000/myBlog?email=${email}`;
     fetch(url, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => setBlog(data));
-  }, [user]);
+  }, [serviceId]);
   const [, setCancle] = useState(false);
   const crossHandle = () => {
     setCancle(false)
   }
+
   return (
     <section className="">
-      <div className=" relative">
+      <div className=" relative mt-36">
+        <h1 className="md:text-[110px] text-4xl absolute -z-10 md:left-1/3 top-8 text-[#f2eded89] text-center font-mono font-bold">Our Blogs</h1>
+        <h1 className="text-xl text-center font-mono text-secondary font-semibold"> Our Blogs</h1>
+        <h1 className="text-4xl my-2 text-center mb-8 font-mono text-secondary font-semibold">Latest Awesome Blogs</h1>
         <div className="Appes ">
           <div className="propertiest grid grid-cols-1 lg:grid-cols-3 ">
-            {blog.map((item) => (
+            {blog?.map((item) => (
               <Card data={item} key={item.date} />
             ))}
           </div>
         </div>
         <div>
           {
-            user?.email && <div className="absolute bottom-0 right-2">
+            user?.email === serviceId?.email ? <div className="absolute mt-4 bottom-0 right-2">
               <label htmlFor="my-modal-6" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
                 <HiPencilAlt className="mr-3 text-xl" />
                 Blog Post
@@ -48,7 +52,7 @@ const ForumBlogs = () => {
                   <BlogPost />
                 </div>
               </div>
-            </div>
+            </div> : " "
           }
         </div>
       </div>
