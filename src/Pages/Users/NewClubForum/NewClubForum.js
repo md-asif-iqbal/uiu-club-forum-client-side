@@ -20,8 +20,8 @@ const NewClubForum = () => {
       bio: data.describe,
       phone: data.phone
     }
-    fetch(`http://localhost:8000/user/service/${user?.email}`, {
-      method: "PUT",
+    fetch(`http://localhost:8000/allrequest`, {
+      method: "POST",
       headers: {
         "content-type": "application/json",
       },
