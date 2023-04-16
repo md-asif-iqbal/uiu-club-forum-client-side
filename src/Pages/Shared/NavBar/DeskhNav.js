@@ -14,7 +14,6 @@ const DeskhNav = () => {
   };
 
   const [service] = UseService()
-  console.log(service);
 
   const navigateDetails = (id) => {
     navigate(`/service/${id}`);

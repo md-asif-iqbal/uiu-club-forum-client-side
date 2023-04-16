@@ -137,7 +137,7 @@ const ForumRegister = ({ serviceId }) => {
         <div className="flex justify-between  items-stretch flex-row">
           <div className="flex items-center bg-primary justify-center">
             <p className="transform flex flex-shrink-0 -rotate-90 text-4xl font-semibold tracking-wide leading-normal text-white">
-              HR FORUM
+              Registation
             </p>
           </div>
           <div className="flex justify-center items-start flex-col xl:w-2/5 md:w-5/12 xl:px-7 px-6 md:px-0 md:py-0 py-5">

@@ -23,6 +23,10 @@ const EventsBlogs = () => {
        return <Loading></Loading>;
      }
   console.log(eventBlogs.length);
+
+  const handleReact = () => {
+    console.log("yes");
+  }
   
   return (
     <div>
@@ -49,7 +53,10 @@ const EventsBlogs = () => {
             <SwiperSlide>
               <div className="flex flex-col mx-2  pb-16 ">
                 <div className="group relative block overflow-hidden shadow-lg">
-                  <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+                  <button
+                    onClick={handleReact}
+                    className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
+                  >
                     <span className="sr-only">Wishlist</span>
 
                     <svg

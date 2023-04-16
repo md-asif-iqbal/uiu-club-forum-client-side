@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Pagination } from "swiper";
@@ -6,6 +6,8 @@ import "./Style.css";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 const RecentEvent = () => {
+  const [items, setItems] = useState();
+  console.log(items);
   const url = `http://localhost:8000/recentEvents`;
   const {
     data: recentEvents,
@@ -71,7 +73,8 @@ const RecentEvent = () => {
                       <div className="borders ml-10"> </div>
                       <div>
                         <label
-                          htmlFor="my-modal-5"
+                          onClick={() => setItems(item)}
+                          htmlFor={item._id}
                           className="text-sm cursor-pointer text-primary font-bold mr-10"
                         >
                           Read More ...
@@ -80,12 +83,58 @@ const RecentEvent = () => {
                     </div>
                   </div>
                 </div>
-               
               </SwiperSlide>
             </>
           ))}
         </div>
       </Swiper>
+
+      <>
+        <input type="checkbox" id={items?._id} className="modal-toggle" />
+        <div className="modal  ">
+          <div className="modal-box w-11/12 max-w-5xl">
+            <label
+              htmlFor={items?._id}
+              className="btn btn-sm  hover:bg-rose-600 hover:text-white btn-circle absolute  right-2 top-2"
+            >
+              ✕
+            </label>
+
+            <section>
+              <div class="relative mx-auto px-4 py-8">
+                <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
+                  <div class="grid grid-cols-2 gap-4 md:grid-cols-1">
+                    <img
+                      alt=""
+                      src={items?.img}
+                      class="aspect-square w-full rounded-xl object-cover"
+                    />
+                  </div>
+
+                  <div class="sticky top-0">
+                    <strong class="rounded-full border border-blue-600 bg-gray-100 px-3 py-1 text-xs font-medium tracking-wide text-blue-600">
+                      Recent Events
+                    </strong>
+
+                    <div class="mt-8 flex justify-between">
+                      <div class="max-w-[35ch] space-y-2">
+                        <h1 class="text-xl font-bold sm:text-2xl">
+                          {items?.title}
+                        </h1>
+
+                        <p class="text-sm mt-2 w-full">{ items?.details}</p>
+                      </div>
+                    </div>
+
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </>
+
       <div className="md:w-56 w-5/12 mx-auto mt-10">
         <button className="w-full mx-auto bg-primary py-4 text-white px-3 font-mono text-xl rounded-lg">
           {" "}
