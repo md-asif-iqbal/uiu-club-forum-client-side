@@ -14,7 +14,7 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
-          <ul className="menu p-4 overflow-y-auto gap-2 w-50 bg-primary rounded text-base-content">
+          <ul className="menu p-4  overflow-y-auto gap-2 w-50 bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] rounded text-white ">
             {/* <!-- Sidebar content here --> */}
             <li className="font-bold">
               <Link to="/Dashboard">Dashboard</Link>
@@ -23,26 +23,26 @@ const Dashboard = () => {
             <>
               <li className="font-bold">
                 <Link to="/Dashboard/all-requested-club-forum">
-                  All Requested Club&Forum
+                  All Requested <br /> Club&Forum
                 </Link>
               </li>
               <li className="font-bold">
                 <Link to="/Dashboard/request-for-room-booking">
-                  Request for Room Booking
+                  Request for Room <br /> Booking
                 </Link>
               </li>
               <>
                 <li className="font-bold">
-                  <Link to="/dashboard/volunteerRequest">
-                    Manage All Volunteer Request
+                  <Link to="/Dashboard/volunteerRequest">
+                    Manage All <br /> Volunteer Request
                   </Link>
                 </li>
               </>
               <li className="font-bold">
-                <Link to="/dashboard/addReviews">Add new Event</Link>
+                <Link to="/Dashboard/addNewEvents">Add new Event</Link>
               </li>
               <li className="font-bold">
-                <Link to="/dashboard/addReviews">Add News</Link>
+                <Link to="/Dashboard/addReviews">Add News</Link>
               </li>
               <li className="font-bold">
                 <Link to="/Dashboard/add-new-blogs">Add New Blogs</Link>

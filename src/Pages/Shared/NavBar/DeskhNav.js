@@ -20,28 +20,28 @@ const DeskhNav = () => {
 }
   const navigation = (
     <>
-      <li className=" dark:text-[#6B707F]  text-black hover:border-b-[1px] border-[#64CEE6] text-lg cursor-pointer">
+      <li className=" dark:text-[#6B707F]  text-black hover:border-b-[1px] border-[#64CEE6]   text-md cursor-pointer">
         <CustomLink
           to="/"
-          className="transition-all duration-300 uppercase font-semibold "
+          className="transition-all duration-300 uppercase font-bold "
         >
           {" "}
           Home
         </CustomLink>
       </li>
-      <li className="  dark:text-[#6B707F] hover:border-b-[1px] border-[#64CEE6] text-black text-lg cursor-pointer uppercase">
+      <li className="  dark:text-[#6B707F] hover:border-b-[1px] border-[#64CEE6] text-black   text-md cursor-pointer uppercase">
         <CustomLink
           to="/upcoming-events"
-          className="transition-all duration-300 font-semibold"
+          className="transition-all duration-300 font-bold"
         >
           {" "}
           Upcoming Events
         </CustomLink>
       </li>
-      <li className=" dark:text-[#6B707F]  hover:border-b-[1px] border-[#64CEE6] text-lg text-black cursor-pointer uppercase">
+      <li className=" dark:text-[#6B707F]  hover:border-b-[1px] border-[#64CEE6]   text-md text-black cursor-pointer uppercase">
         <CustomLink
           to="/news"
-          className="transition-all duration-300  font-semibold"
+          className="transition-all duration-300  font-bold"
         >
           News
         </CustomLink>
@@ -49,24 +49,32 @@ const DeskhNav = () => {
       <li className=" dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
         <CustomLink
           to="/Club"
-          className="transition-all text-lg duration-300 font-semibold"
+          className="transition-all   text-md duration-300 font-bold"
         >
           Clubs
         </CustomLink>
       </li>
-      <li className='dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase'>
+      <li className="dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
         <div className="dropdown dropdown-hover">
-          <label tabIndex={0} className="transition-all text-lg duration-300 font-semibold">Forum</label>
-          <ul tabIndex={0} className="dropdown-content menu -ml-20 pt-4 shadow bg-primary/20 rounded-box w-72">
-            <li className="mx-auto">
-              {
-                service.map(item => <div
-                  onClick={() => navigateDetails(item._id)} 
-                  className="transition-all text-sm duration-300 text-secondary font-semibold"
+          <label
+            tabIndex={0}
+            className="transition-all   text-md duration-300 font-bold"
+          >
+            Forum
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu -ml-20 pt-4 shadow bg-transparent rounded w-56"
+          >
+            <li className="mx-auto w-full">
+              {service.map((item) => (
+                <div
+                  onClick={() => navigateDetails(item._id)}
+                  className="transition-all text-center hover:bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] text-sm hover:text-white duration-300 text-secondary font-bold"
                 >
                   {item.serviceName}
-                </div>)
-              }
+                </div>
+              ))}
             </li>
           </ul>
         </div>
@@ -77,12 +85,12 @@ const DeskhNav = () => {
             <div className="dropdown dropdown-end">
               <button className=" transition-all duration-300 uppercase">
                 <div className="avatar">
-                  <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     {user?.photoURL ? (
                       <img
                         src={user?.photoURL}
                         alt={user?.displayName}
-                        className="w-12 p-0 text-primary"
+                        className="w-10 p-0 text-primary"
                       />
                     ) : (
                       <img
@@ -105,10 +113,16 @@ const DeskhNav = () => {
                   >
                     LOGOUT
                   </button>
-                  <Link to='/request-for-create-new-club-or-forum' className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md">
+                  <Link
+                    to="/request-for-create-new-club-or-forum"
+                    className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md"
+                  >
                     Request for create new Club&Forum
                   </Link>
-                  <Link to='/Dashboard' className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md">
+                  <Link
+                    to="/Dashboard"
+                    className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md"
+                  >
                     Dashboard
                   </Link>
                 </div>
@@ -118,7 +132,7 @@ const DeskhNav = () => {
         ) : (
           <CustomLink
             to="/login"
-            className=" text-[#6B707F] py-4 px-6 bg-white transition-all text-lg duration-300 font-semibold cursor-pointer uppercase rounded-sm"
+            className=" text-[#6B707F] py-4 px-6 bg-white transition-all   text-md duration-300 font-bold cursor-pointer uppercase rounded-sm"
           >
             Login
           </CustomLink>

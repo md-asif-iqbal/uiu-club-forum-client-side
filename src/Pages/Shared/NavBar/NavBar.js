@@ -17,10 +17,10 @@ const Navbar = () => {
       >
         <div className='w-10/12 mx-auto h-full flex items-center justify-between'>
           <div className="flex items-center -mt-4">
-            <img src={logo} alt="" className='h-12' />
-            <h1 className="text-2xl text-[#1D2746] ml-2 font-bold font-mono">UIU CLUB FORUM </h1>
+            <img src={logo} alt="" className='h-8' />
+            <h1 className="text-xl text-[#1D2746] ml-2 font-bold font-mono">UIU CLUB FORUM </h1>
           </div>
-          <div className='hidden lg:block'>
+          <div className='hidden lg:block '>
             <DeskhNav ></DeskhNav>
           </div>
           <div className='lg:hidden'>

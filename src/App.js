@@ -32,6 +32,7 @@ import AllVolunteerRequest from "./Pages/Admin/Login/Dashboard/AllVolunteerRegis
 import { useQuery } from "react-query";
 import Loading from "./Pages/Shared/Loading/Loading";
 import AddNewBlogs from "./Pages/Admin/Login/Dashboard/AddNewBlogs";
+import AddNewEvent from "./Pages/Admin/Login/Dashboard/AddNewEvent";
 
 function App() {
 
@@ -69,7 +70,7 @@ function App() {
         },
         {
           path: "/service/:id",
-          element: <Services />
+          element: <Services />,
         },
         {
           path: "/login",
@@ -148,9 +149,14 @@ function App() {
               path: "/Dashboard/add-new-blogs",
               element: <AddNewBlogs />,
             },
+
+            {
+              path: "/Dashboard/addNewEvents",
+              element: <AddNewEvent />,
+            },
             {
               path: "/Dashboard/volunteerRequest",
-              element: <AllVolunteerRequest  />,
+              element: <AllVolunteerRequest />,
               children: [
                 {
                   path: "/Dashboard/volunteerRequest/:ID",
