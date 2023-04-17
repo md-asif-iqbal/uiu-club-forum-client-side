@@ -51,7 +51,10 @@ const EventsBlogs = () => {
         {eventBlogs?.map((eventBlogs) => (
           <>
             <SwiperSlide>
-              <div className="flex flex-col mx-2  pb-16 ">
+              <div
+                className="flex flex-col mx-2  pb-16 "
+                
+              >
                 <div className="group relative block overflow-hidden shadow-lg">
                   <button
                     onClick={handleReact}
