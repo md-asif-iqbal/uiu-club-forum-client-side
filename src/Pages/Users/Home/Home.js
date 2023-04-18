@@ -14,7 +14,7 @@ const Home = () => {
             <UpcomingEvents />
             <ClubCta />
             <ClubForum />
-            <FroumCta />
+            <FroumCta /> 
             <RecentEvent />
             <Contact />
         </div>

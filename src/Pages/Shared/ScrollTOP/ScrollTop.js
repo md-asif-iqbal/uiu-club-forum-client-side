@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { FaArrowCircleUp } from "react-icons/fa";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 import "./ScrollTop.css";
 const ScrollTop = () => {
      const [visible, setVisible] = useState(false);
@@ -27,7 +27,8 @@ const ScrollTop = () => {
     return (
       <div>
         <button className="buttons right-0 text-right mr-10 animate-bounce">
-          <FaArrowCircleUp size={40}
+          <IoIosArrowDropupCircle
+            size={40}
             onClick={scrollToTop}
             style={{ display: visible ? "inline" : "none" }}
           />
