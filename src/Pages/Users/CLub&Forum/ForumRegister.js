@@ -43,47 +43,48 @@ const ForumRegister = ({ serviceId }) => {
           <>
             <div className="card-body -mt-8">
               <h1 className="text-xl font-bold text-center">Information</h1>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">What is your name?</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type here"
-                  className="input input-bordered w-full max-w-xs"
-                />
-              </div>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">What is your student ID?</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="Type here"
-                  className="input input-bordered w-full max-w-xs"
-                />
-              </div>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">What is your Email?</span>
-                </label>
-                <input
-                  type="email"
-                  placeholder="Type here"
-                  className="input input-bordered w-full max-w-xs"
-                />
-              </div>
+              <form className="w-full max-w-screen">
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">What is your name?</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    className="input input-bordered w-full max-w-xs"
+                  />
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">What is your student ID?</span>
+                  </label>
+                  <input
+                    type="number"
+                    placeholder="Type here"
+                    className="input input-bordered w-full max-w-xs"
+                  />
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">What is your Email?</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Type here"
+                    className="input input-bordered w-full max-w-xs"
+                  />
+                </div>
 
-              <div className="card-actions justify-end mt-2 -mb-5 ">
-                <button
-                  onClick={handleNext}
-                  disabled={activeStep === 3}
-                  className=" text-gray-700 px-8 rounded py-2 bg-white"
-                >
-                  {activeStep === 3 ? "Finish" : "Next"}
-                </button>
-              </div>
-
+                <div className="card-actions justify-end mt-2 -mb-5 ">
+                  <button
+                    onClick={handleNext}
+                    disabled={activeStep === 3}
+                    className=" text-gray-700 px-8 rounded py-2 mb-5 bg-white"
+                  >
+                    {activeStep === 2 ? "Finish" : "Next"}
+                  </button>
+                </div>
+              </form>
             </div>
           </>
         );
