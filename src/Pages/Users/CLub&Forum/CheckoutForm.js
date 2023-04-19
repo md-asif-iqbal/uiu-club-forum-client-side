@@ -99,7 +99,7 @@ const CheckoutForm = () => {
   return (
     <>
       <form
-        className="p-0"
+        className="p-0 "
         style={{ display: "inline" }}
         onSubmit={handleSubmit}
       >
@@ -122,7 +122,7 @@ const CheckoutForm = () => {
         />
 
         <div className="mt-10 mb-5">
-          <button className="pay-btn" type="submit" disabled={!stripe}>
+          <button className="pay-btn bg-rose-600 text-white font-bold p-1 px-5 rounded" type="submit" disabled={!stripe}>
             Pay
           </button>
         </div>

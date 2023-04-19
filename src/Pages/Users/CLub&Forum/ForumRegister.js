@@ -12,6 +12,8 @@ import auth from "../../../firebase.init";
 import { HiPencilAlt } from "react-icons/hi";
 import AboutForm from "../../DynamicPages/DynamicForum/AboutForm";
 const ForumRegister = ({ serviceId }) => {
+
+  console.log(serviceId);
   const stripePromise = loadStripe(
     "pk_test_51LXS98B5Y3AeAE8iNY0Hgf4QUbKwQQVuUk1NqhUhbNZ1UhjYvdE5UJw3DnEJBLmlWBgFqKIjfXEnVZujomnNCAyo00kHESTAcf"
   );
@@ -92,29 +94,28 @@ const ForumRegister = ({ serviceId }) => {
       case 1:
         return (
           <>
-            <div className="card-body ">
-              <div className="card-body">
-                <p className="text-success text-2xl font-bold">
-                  Hello, from UIU
-                </p>
-                <p>Please pay: 350 tk</p>
-              </div>
-            </div>
-            <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-              <div className="card-body">
-                {/* see here is problem payment options can't show here */}
-                <Elements stripe={stripePromise}>
-                  <CheckoutForm stripe={stripePromise} />
-                </Elements>
-              </div>
-              <div className="card-actions justify-end">
-                <button
-                  onClick={handleNext}
-                  disabled={activeStep === 2}
-                  className=" text-gray-700 px-8 rounded py-2 bg-white"
-                >
-                  {activeStep === 2 ? "Finish" : "Next"}
-                </button>
+            <div className="w-full bg-white">
+              <p className="text-success text-2xl font-bold">
+                Hello, from UIU {serviceId.serviceName}
+              </p>
+              <p>Please pay: 350 tk</p>
+
+              <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl mb-3 bg-base-100 ">
+                <div className="card-body">
+                  {/* see here is problem payment options can't show here */}
+                  <Elements stripe={stripePromise}>
+                    <CheckoutForm stripe={stripePromise} />
+                  </Elements>
+                </div>
+                <div className="card-actions justify-end">
+                  <button
+                    onClick={handleNext}
+                    disabled={activeStep === 2}
+                    className=" text-gray-700 px-8 rounded py-2 bg-white"
+                  >
+                    {activeStep === 2 ? "Finish" : "Next"}
+                  </button>
+                </div>
               </div>
             </div>
           </>
@@ -191,7 +192,7 @@ const ForumRegister = ({ serviceId }) => {
                         </Stepper>
                       </div>
 
-                      <div className="card mx-auto bg-gray-100 mt-6">
+                      <div className="card mx-auto bg-white mt-6">
                         {activeStep === 2 ? (
                           <Typography variant="h3" className="align-center text-center p-5">
                             Thanks for Joining
