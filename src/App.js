@@ -33,6 +33,7 @@ import { useQuery } from "react-query";
 import Loading from "./Pages/Shared/Loading/Loading";
 import AddNewBlogs from "./Pages/Admin/Login/Dashboard/AddNewBlogs";
 import AddNewEvent from "./Pages/Admin/Login/Dashboard/AddNewEvent";
+import NotFound from "./Pages/Shared/NotFound/NotFound";
 
 function App() {
 
@@ -67,6 +68,10 @@ function App() {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "*",
+          element: <NotFound />,
         },
         {
           path: "/service/:id",

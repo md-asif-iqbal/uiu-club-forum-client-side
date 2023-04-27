@@ -13,7 +13,7 @@ const ForumActivitys = () => {
                             <table className="w-full">
                                 <thead>
                                     <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                                        <th className="px-4 py-3">1</th>
+                                        <th className="px-4 py-3">SL.</th>
                                         <th className="px-4 py-3">Date</th>
                                         <th className="px-4 py-3">Activity Title</th>
                                         <th className="px-4 py-3">Short Details</th>

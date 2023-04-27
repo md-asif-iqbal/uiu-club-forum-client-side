@@ -16,7 +16,7 @@ const ForumFAQ = ({ serviceId }) => {
   const [faq, setFaq] = useState([])
   console.log(faq);
   useEffect(() => {
-    const email = serviceId?.email
+    const email = serviceId?.email;
     const url = `http://localhost:8000/myfaq?email=${email}`;
     fetch(url, {
       method: "GET",
