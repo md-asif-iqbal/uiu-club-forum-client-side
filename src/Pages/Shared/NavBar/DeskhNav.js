@@ -5,8 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import CustomLink from "../../../Component/CustomLink";
 import auth from "../../../firebase.init";
 import UseService from "../../../Hooks/UseService";
+import useAdmin from "../../../Hooks/useAdmin";
 const DeskhNav = () => {
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   const navigate = useNavigate();
   const logout = () => {
     signOut(auth);
@@ -119,12 +121,14 @@ const DeskhNav = () => {
                   >
                     Request for create new Club&Forum
                   </Link>
-                  <Link
-                    to="/Dashboard"
-                    className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md"
-                  >
-                    Dashboard
-                  </Link>
+                  {admin && (
+                    <Link
+                      to="/Dashboard"
+                      className="flex uppercase w-full mx-0 text-start px-3 py-3 cursor-pointer  text-white text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md"
+                    >
+                      Dashboard
+                    </Link>
+                  )}
                 </div>
               </ul>
             </div>

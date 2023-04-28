@@ -5,29 +5,25 @@ import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../Loading/Loading';
-import useToken from '../../../Hooks/UseToken';
-
 const SocialLogin = () => {
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
-    const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
-    const [token] = useToken(Guser)
-
-    if (Gerror) {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    if (error) {
         return (
             <>
                 {
-                    toast.error(Gerror?.message)
+                    toast.error(error?.message)
                 }
             </>
         )
     }
-    if (Gloading) {
+    if (loading) {
         return <div className='h-40 mt-10'>{<Loading />}</div>
 
     };
-    if (Guser) {
+    if (user) {
         navigate(from, { replace: true })
         return (
             <>

@@ -74,7 +74,7 @@ const EventsBanner = ({ data }) => {
                   <div className="flex justify-center text-center text-white">
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl font-semibold md:text-5xl text-yellow-400">
-                        {String(timeLeft.days).padStart(2, "0")}
+                        {String(timeLeft?.days).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75">
                         Day
@@ -82,7 +82,7 @@ const EventsBanner = ({ data }) => {
                     </div>
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl font-semibold md:text-5xl text-blue-400">
-                        {String(timeLeft.hours).padStart(2, "0")}
+                        {String(timeLeft?.hours).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75 ">
                         Hour
@@ -90,7 +90,7 @@ const EventsBanner = ({ data }) => {
                     </div>
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl font-semibold md:text-5xl text-red-500">
-                        {String(timeLeft.minutes).padStart(2, "0")}
+                        {String(timeLeft?.minutes).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75 ">
                         Min
@@ -98,7 +98,7 @@ const EventsBanner = ({ data }) => {
                     </div>
                     <div className="w-20 py-3 mx-2 border rounded-lg md:w-28 border-light-300 bg-light-100 md:py-4">
                       <div className="text-2xl  font-semibold md:text-5xl text-yellow-400">
-                        {String(timeLeft.seconds).padStart(2, "0")}
+                        {String(timeLeft?.seconds).padStart(2, "0")}
                       </div>
                       <div className="mt-3 text-xs uppercase opacity-75 ">
                         Second
