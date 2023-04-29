@@ -17,9 +17,12 @@ const DeskhNav = () => {
 
   const [service] = UseService()
 
+  const forumItem = service.filter((item) => item.service === "Forum")
+  const clubItem = service.filter((item) => item.service === "Club")
+
   const navigateDetails = (id) => {
     navigate(`/service/${id}`);
-}
+  }
   const navigation = (
     <>
       <li className=" dark:text-[#6B707F]  text-black hover:border-b-[1px] border-[#64CEE6]   text-md cursor-pointer">
@@ -48,14 +51,39 @@ const DeskhNav = () => {
           News
         </CustomLink>
       </li>
-      <li className=" dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
+      <li className="dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
+        <div className="dropdown dropdown-hover">
+          <label
+            tabIndex={0}
+            className="transition-all   text-md duration-300 font-bold"
+          >
+            Club
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu -ml-20 pt-4 shadow bg-transparent rounded w-56"
+          >
+            <li className="mx-auto w-full">
+              {clubItem?.map((item) => (
+                <div
+                  onClick={() => navigateDetails(item._id)}
+                  className="transition-all text-center hover:bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] text-sm hover:text-white duration-300 text-secondary font-bold"
+                >
+                  {item?.serviceName}
+                </div>
+              ))}
+            </li>
+          </ul>
+        </div>
+      </li>
+      {/* <li className=" dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
         <CustomLink
           to="/Club"
           className="transition-all   text-md duration-300 font-bold"
         >
           Clubs
         </CustomLink>
-      </li>
+      </li> */}
       <li className="dark:text-[rgb(107,112,127)]  text-black  cursor-pointer hover:border-b-[1px] border-[#64CEE6] uppercase">
         <div className="dropdown dropdown-hover">
           <label
@@ -69,12 +97,12 @@ const DeskhNav = () => {
             className="dropdown-content menu -ml-20 pt-4 shadow bg-transparent rounded w-56"
           >
             <li className="mx-auto w-full">
-              {service.map((item) => (
+              {forumItem?.map((item) => (
                 <div
                   onClick={() => navigateDetails(item._id)}
                   className="transition-all text-center hover:bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] text-sm hover:text-white duration-300 text-secondary font-bold"
                 >
-                  {item.serviceName}
+                  {item?.serviceName}
                 </div>
               ))}
             </li>

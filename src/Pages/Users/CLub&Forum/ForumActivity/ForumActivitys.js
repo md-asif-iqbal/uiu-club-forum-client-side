@@ -7,22 +7,21 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { HiPencilAlt } from "react-icons/hi";
 import auth from '../../../../firebase.init';
 const ForumActivitys = ({ serviceId }) => {
-    const [user] = useAuthState(auth);
-    const [, setCancle] = useState(false);
-    const crossHandle = () => {
-      setCancle(false);
-    };
+  const [user] = useAuthState(auth);
+  const [, setCancle] = useState(false);
+  const crossHandle = () => {
+    setCancle(false);
+  };
 
-  const [faq, setFaq] = useState([]);
-  console.log(faq);
+  const [activies, setActivies] = useState([]);
   useEffect(() => {
     const email = serviceId?.email;
-    const url = `http://localhost:8000/myfaq?email=${email}`;
+    const url = `http://localhost:8000/myActivites?email=${email}`;
     fetch(url, {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((data) => setFaq(data));
+      .then((data) => setActivies(data));
   }, [serviceId]);
 
   console.log(serviceId.email);
@@ -54,20 +53,20 @@ const ForumActivitys = ({ serviceId }) => {
                   </tr>
                 </thead>
                 <tbody className="">
-                  <tr className="text-gray-700">
-                    <td className="px-4 py-3 border">1</td>
-                    <td className="px-4 py-3 border">20-02-2023</td>
-                    <td className="px-4 py-3 text-ms font-semibold border">
-                      CV Session
-                    </td>
-                    <td className="px-4 py-3 text-xs border">
-                      Its help your career to make a parfect CV
-                    </td>
-                    <td className="px-4 py-3 text-sm border">20 People</td>
-                  </tr>
-                  {/* {data?.activity.map((activity, index) => (
-                                        
-                                    ))} */}
+
+                  {
+                    activies.map(item => <tr className="text-gray-700">
+                      <td className="px-4 py-3 border">1</td>
+                      <td className="px-4 py-3 border">{item?.date}</td>
+                      <td className="px-4 py-3 text-ms font-semibold border">
+                        {item?.title}
+                      </td>
+                      <td className="px-4 py-3 text-xs border">
+                        {item?.description}
+                      </td>
+                      <td className="px-4 py-3 text-sm border">{item?.student}</td>
+                    </tr>)
+                  }
                 </tbody>
               </table>
             </div>
