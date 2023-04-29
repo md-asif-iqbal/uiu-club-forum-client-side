@@ -93,7 +93,7 @@ const NewClubForum = () => {
                 </div>
                 <div className="col-span-full sm:col-span-3">
                   <label for="username" className="text-sm">
-                    Select Your Service
+                    Select Club Or Forum
                   </label>
                   <select
                     className="input input-bordered input-primary w-full max-w-xs"

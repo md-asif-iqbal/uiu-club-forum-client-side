@@ -11,10 +11,12 @@ const ActivityPost = () => {
     const onSubmit = (data) => {
       const updateData = {
         email: user.email,
-        ques: data.ques,
-        ans: data.ans,
+        title: data.title,
+        description: data.description,
+        student: data.student,
+        date: data.date,
       };
-      fetch(`http://localhost:8000/faq`, {
+      fetch(`http://localhost:8000/activites`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -22,7 +24,7 @@ const ActivityPost = () => {
         body: JSON.stringify(updateData),
       }).then((res) => res.json());
       navigate("/");
-      toast("Successful ! Your Faq Post");
+      toast("Successful ! Your Faq Activites");
     };
     return (
       <div>
@@ -89,7 +91,7 @@ const ActivityPost = () => {
             <input
               className="mt-4 mb-4 text-white border-[#521647] text-lg w-full py-3 rounded-lg font-bold border-2 bg-[#521647] cursor-pointer hover:bg-transparent hover:border-white"
               type="submit"
-              value="Post FaQ"
+              value="Post Activites"
             />
           </form>
         </div>
