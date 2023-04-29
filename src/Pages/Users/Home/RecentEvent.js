@@ -135,12 +135,12 @@ const RecentEvent = () => {
         </div>
       </>
 
-      <div className="md:w-56 w-5/12 mx-auto mt-10">
+      {/* <div className="md:w-56 w-5/12 mx-auto mt-10">
         <button className="w-full mx-auto bg-primary py-4 text-white px-3 font-mono text-xl rounded-lg">
           {" "}
           See More Events
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

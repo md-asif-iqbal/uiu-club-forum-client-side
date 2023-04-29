@@ -90,7 +90,7 @@ const Contact = () => {
                     <h4 className="font-bold text-secondary text-xl mb-1">
                       Phone Number
                     </h4>
-                    <p className="text-secondary">+88017623.122</p>
+                    <p className="text-secondary">+88017157.124</p>
                   </div>
                 </div>
                 <div className="flex mb-8 max-w-[370px] w-full">
