@@ -9,7 +9,6 @@ const ForumBanner = ({ serviceId }) => {
   const crossHandle = () => {
     setCancle(false)
   }
-  console.log(serviceId);
   const [user] = useAuthState(auth);
 
   return (

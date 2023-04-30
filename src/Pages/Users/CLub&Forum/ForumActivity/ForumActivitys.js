@@ -24,7 +24,6 @@ const ForumActivitys = ({ serviceId }) => {
       .then((data) => setActivies(data));
   }, [serviceId]);
 
-  console.log(serviceId.email);
   return (
     <>
       <div className="relative mt-40">

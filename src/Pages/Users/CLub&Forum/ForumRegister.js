@@ -12,14 +12,13 @@ import auth from "../../../firebase.init";
 import { HiPencilAlt } from "react-icons/hi";
 import AboutForm from "../../DynamicPages/DynamicForum/AboutForm";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
 const ForumRegister = ({ serviceId }) => {
 
-  console.log(serviceId);
   const stripePromise = loadStripe(
     "pk_test_51LXS98B5Y3AeAE8iNY0Hgf4QUbKwQQVuUk1NqhUhbNZ1UhjYvdE5UJw3DnEJBLmlWBgFqKIjfXEnVZujomnNCAyo00kHESTAcf"
   );
+  const [csubmit, setSubmit] = useState(false)
+
   const mcq = [
     {
       id: 1,
@@ -36,29 +35,25 @@ const ForumRegister = ({ serviceId }) => {
 
   const [user] = useAuthState(auth)
   const { register, handleSubmit } = useForm();
+  const [custom, setCustom] = useState([])
+
   const onSubmit = (data) => {
-     console.log(data , "yes");
-    //  const updateData = {
-    //    email: user.email,
-    //    title: data.title,
-    //    description: data.description,
-    //    student: data.student,
-    //    date: data.date,
-    //  };
-    //  fetch(`http://localhost:8000/activites`, {
-    //    method: "POST",
-    //    headers: {
-    //      "content-type": "application/json",
-    //    },
-    //    body: JSON.stringify(updateData),
-    //  }).then((res) => res.json());
-    //  Navigate("/");
-    //  toast("Successful ! Your Faq Activites");
-   };
+    setSubmit(true)
+    const updateData = {
+      email: data?.email,
+      name: data?.name,
+      studentId: data.studentId,
+      phone: data.phone,
+    };
+    setCustom(updateData)
+  };
   const [, setCancle] = useState(false);
   const crossHandle = () => {
     setCancle(false)
   }
+
+  console.log(custom);
+
 
   function getStepContent(step) {
     switch (step) {
@@ -89,7 +84,7 @@ const ForumRegister = ({ serviceId }) => {
                     <span className="label-text">What is your student ID?</span>
                   </label>
                   <input
-                    {...register("number", {
+                    {...register("studentId", {
                       required: true,
                     })}
                     type="number"
@@ -99,7 +94,7 @@ const ForumRegister = ({ serviceId }) => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">What is your Email?</span>
+                    <span className="label-text">Enter is your Email?</span>
                   </label>
                   <input
                     {...register("email", {
@@ -110,23 +105,38 @@ const ForumRegister = ({ serviceId }) => {
                     className="input input-bordered w-full max-w-xs"
                   />
                 </div>
-                <input
-                  className="mt-4 mb-4 text-white border-[#521647] text-lg w-full py-3 rounded-lg font-bold border-2 bg-[#521647] cursor-pointer hover:bg-transparent hover:border-white"
-                  type="submit"
-                  value="Next"
-                 
-                />
-
-                <div className="card-actions justify-end mt-10 -mb-5 ">
-                  <button
-                    type="submit"
-                    onClick={handleNext}
-                    disabled={activeStep === 3}
-                    className=" text-gray-700 px-8 rounded py-2 mb-5 bg-white"
-                  >
-                    {activeStep === 2 ? "Finish" : "Next"}
-                  </button>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Enter Your Phone Number?</span>
+                  </label>
+                  <input
+                    {...register("phone", {
+                      required: true,
+                    })}
+                    type="number"
+                    placeholder="Type here"
+                    className="input input-bordered w-full max-w-xs"
+                  />
                 </div>
+                {
+                  csubmit === false ? <div className="card-actions justify-end mt-10 -mb-5 ">
+                    <button
+                      type="submit"
+                      value="Submit"
+                      className=" text-gray-700 px-8 rounded py-2 mb-5 bg-green-500"
+                    >
+                      Submit
+                    </button>
+                  </div> : <div className="card-actions justify-end mt-10 -mb-5 ">
+                    <button
+                      onClick={handleNext}
+                      disabled={activeStep === 3}
+                      className=" text-gray-700 px-8 rounded py-2 mb-5 bg-blue-500"
+                    >
+                      {activeStep === 2 ? "Finish" : "Next"}
+                    </button>
+                  </div>
+                }
               </form>
             </div>
           </>
@@ -145,7 +155,7 @@ const ForumRegister = ({ serviceId }) => {
                 <div className="card-body">
                   {/* see here is problem payment options can't show here */}
                   <Elements stripe={stripePromise}>
-                    <CheckoutForm stripe={stripePromise} />
+                    <CheckoutForm custom={custom} serviceId={serviceId} stripe={stripePromise} />
                   </Elements>
                 </div>
                 <div className="card-actions justify-end">
