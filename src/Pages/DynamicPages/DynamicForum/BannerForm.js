@@ -9,7 +9,7 @@ const BannerForm = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
-    const imgStorageKey = "58d3c7355cf533547f2645e98915da5c";
+    const imgStorageKey = "f4df601fbbe9f7e258525727fabc681c";
     const onSubmit = (data) => {
         const image = data.image[0];
         const formData = new FormData();

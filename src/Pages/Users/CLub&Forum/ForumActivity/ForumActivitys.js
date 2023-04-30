@@ -73,7 +73,7 @@ const ForumActivitys = ({ serviceId }) => {
         </section>
         <div className=''>
           {user?.email === serviceId?.email ? (
-            <div className="absolute bottom-10 right-10 top-64">
+            <div className="absolute bottom-10 right-10 ">
               <label htmlFor="my-modal-8" className=" uppercase cursor-pointer">
                 <h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
                   <HiPencilAlt className="mr-3 text-xl" />

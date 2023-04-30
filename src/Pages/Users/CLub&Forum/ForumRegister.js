@@ -338,17 +338,17 @@ const ForumRegister = ({ serviceId }) => {
         <>
           <div className="md:w-72 w-5/12 mx-auto mt-8">
             <label
-              htmlFor="my-modal-8"
+              htmlFor="my-modal-11"
               className="w-full mx-auto bg-primary py-3 text-white px-3 font-mono text-xl rounded-lg"
             >
               {" "}
               See all new members
             </label>
-            <input type="checkbox" id="my-modal-8" className="modal-toggle" />
+            <input type="checkbox" id="my-modal-11" className="modal-toggle" />
             <div className="modal">
               <div className="modal-box w-11/12  max-w-5xl">
                 <label
-                  htmlFor="my-modal-8"
+                  htmlFor="my-modal-11"
                   className="btn btn-sm btn-circle absolute right-2 top-2"
                 >
                   ✕

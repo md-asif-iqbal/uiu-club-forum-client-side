@@ -21,7 +21,7 @@ const Registation = () => {
   const { register, reset, handleSubmit, watch, formState: { errors } } = useForm();
   let errorMessage;
 
-  const [token] = useToken(user)
+  // const [token] = useToken(user);
   if (error || updateError) {
     return (
       <>

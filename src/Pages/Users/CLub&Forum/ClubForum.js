@@ -18,10 +18,10 @@ const ClubForum = () => {
           </h1>
         </div>
         <marquee>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 w-full justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full justify-center">
             {service.map((names) => (
-              <div className="px-8 py-4 shadow-lg mr-6 border-t-4 border-[#64CEE6] rounded-md ml-10">
-                <h1 className='text-2xl font-bold text-center'>{ names.serviceName}</h1>
+              <div className="px-8 py-4 shadow-lg mr-6 w-full border-t-4 border-[#64CEE6] rounded-md ml-10">
+                <h1 className='text-xl font-bold w-full text-center'>{ names.serviceName}</h1>
               </div>
             ))}
           </div>

@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 const AddNewEvent = () => {
   const [img, setImg] = useState();
   const { register, reset, handleSubmit } = useForm();
-  const imgStorageKey = "58d3c7355cf533547f2645e98915da5c";
+  const imgStorageKey = "f4df601fbbe9f7e258525727fabc681c";
   const onSubmit = (data) => {
     console.log(data);
     const image = data.img[0];
