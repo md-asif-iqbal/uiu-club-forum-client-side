@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { toast } from "react-toastify";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ custom, serviceId }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
@@ -13,6 +13,7 @@ const CheckoutForm = () => {
 
   const amount = 350
 
+  console.log(custom);
   useEffect(() => {
     if (amount) {
       fetch(
@@ -40,29 +41,22 @@ const CheckoutForm = () => {
   // }
 
   const handleSubmit = async (event) => {
-    // Block native form submission.
     event.preventDefault();
 
+
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
-
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
-    // each type of element.
     const card = elements.getElement(CardElement);
-
     if (card == null) {
       return;
     }
-
-    // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
-    });
+    })
+
+
 
     setCardError(error?.message || "");
     setSuccess("");
@@ -71,6 +65,8 @@ const CheckoutForm = () => {
     } else {
       console.log("[PaymentMethod]", paymentMethod);
     }
+
+
 
     // confrim card payment
     setProcessing(true);
@@ -89,11 +85,29 @@ const CheckoutForm = () => {
       setCardError("");
       setTransactionId(paymentIntent.id);
       console.log(paymentIntent);
-      toast(`Congrats! Your Payment is completed`);
       setSuccess(`Congrats! Your Payment is completed`);
       setProcessing(false);
       event.target.reset();
+      const req = {
+        studentId: custom.studentId,
+        email: custom.email,
+        serviceName: serviceId.serviceName,
+        name: custom.name,
+        phone: custom.phone,
+        payment: paymentIntent.id
+      }
+      fetch(`http://localhost:8000/custom`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(req),
+      })
+        .then((res) => res.json())
+        toast('Succesfully Joined')
     }
+
+
   };
 
   return (

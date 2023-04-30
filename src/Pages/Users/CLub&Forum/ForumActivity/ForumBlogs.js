@@ -10,7 +10,6 @@ import BlogPost from '../../../DynamicPages/DynamicForum/BlogPost';
 const ForumBlogs = ({ serviceId }) => {
   const [user] = useAuthState(auth)
   const [blog, setBlog] = useState([])
-  console.log(blog);
   useEffect(() => {
     const email = serviceId?.email
     const url = `http://localhost:8000/myBlog?email=${email}`;
