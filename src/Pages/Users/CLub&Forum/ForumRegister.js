@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
@@ -12,12 +12,19 @@ import auth from "../../../firebase.init";
 import { HiPencilAlt } from "react-icons/hi";
 import AboutForm from "../../DynamicPages/DynamicForum/AboutForm";
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
+import { useReactToPrint } from "react-to-print";
 const ForumRegister = ({ serviceId }) => {
-
+   const componentPDF = useRef();
+  const generatePDF = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle: "NewMembersData",
+    onAfterPrint: () => alert("New Members Data is Saved"),
+  });
   const stripePromise = loadStripe(
     "pk_test_51LXS98B5Y3AeAE8iNY0Hgf4QUbKwQQVuUk1NqhUhbNZ1UhjYvdE5UJw3DnEJBLmlWBgFqKIjfXEnVZujomnNCAyo00kHESTAcf"
   );
-  const [csubmit, setSubmit] = useState(false)
+  const [csubmit, setSubmit] = useState(false);
 
   const mcq = [
     {
@@ -33,27 +40,40 @@ const ForumRegister = ({ serviceId }) => {
     setActiveStep(activeStep + 1);
   };
 
-  const [user] = useAuthState(auth)
+  const [user] = useAuthState(auth);
   const { register, handleSubmit } = useForm();
-  const [custom, setCustom] = useState([])
+  const [custom, setCustom] = useState([]);
 
   const onSubmit = (data) => {
-    setSubmit(true)
+    setSubmit(true);
     const updateData = {
       email: data?.email,
       name: data?.name,
       studentId: data.studentId,
       phone: data.phone,
     };
-    setCustom(updateData)
+    setCustom(updateData);
   };
   const [, setCancle] = useState(false);
   const crossHandle = () => {
-    setCancle(false)
-  }
-
-  console.log(custom);
-
+    setCancle(false);
+  };
+  const [member, setMember] = useState([]);
+  const url = `http://localhost:8000/custom`;
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        filterMembers(data);
+      });
+  }, [member]);
+  const filterMembers = (data) => {
+    console.log("yes");
+    const updatedItems = data.filter((item) => {
+      return item.serviceName === serviceId.serviceName;
+    });
+    setMember(updatedItems);
+  };
 
   function getStepContent(step) {
     switch (step) {
@@ -118,8 +138,8 @@ const ForumRegister = ({ serviceId }) => {
                     className="input input-bordered w-full max-w-xs"
                   />
                 </div>
-                {
-                  csubmit === false ? <div className="card-actions justify-end mt-10 -mb-5 ">
+                {csubmit === false ? (
+                  <div className="card-actions justify-end mt-10 -mb-5 ">
                     <button
                       type="submit"
                       value="Submit"
@@ -127,7 +147,9 @@ const ForumRegister = ({ serviceId }) => {
                     >
                       Submit
                     </button>
-                  </div> : <div className="card-actions justify-end mt-10 -mb-5 ">
+                  </div>
+                ) : (
+                  <div className="card-actions justify-end mt-10 -mb-5 ">
                     <button
                       onClick={handleNext}
                       disabled={activeStep === 3}
@@ -136,7 +158,7 @@ const ForumRegister = ({ serviceId }) => {
                       {activeStep === 2 ? "Finish" : "Next"}
                     </button>
                   </div>
-                }
+                )}
               </form>
             </div>
           </>
@@ -155,7 +177,11 @@ const ForumRegister = ({ serviceId }) => {
                 <div className="card-body">
                   {/* see here is problem payment options can't show here */}
                   <Elements stripe={stripePromise}>
-                    <CheckoutForm custom={custom} serviceId={serviceId} stripe={stripePromise} />
+                    <CheckoutForm
+                      custom={custom}
+                      serviceId={serviceId}
+                      stripe={stripePromise}
+                    />
                   </Elements>
                 </div>
                 <div className="card-actions justify-end">
@@ -179,7 +205,6 @@ const ForumRegister = ({ serviceId }) => {
   return (
     <div>
       <div className="py-12 flex justify-center  items-center w-full flex-col mt-10 ">
-
         <div className="md:hidden mt-6 w-full">
           <img
             src={serviceId.aboutImg ? serviceId?.aboutImg : joinUS}
@@ -196,12 +221,16 @@ const ForumRegister = ({ serviceId }) => {
           <div className="flex justify-center items-start flex-col xl:w-2/5 md:w-5/12 xl:px-7 px-6 md:px-0 md:py-0 py-5">
             <div>
               <p className="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800">
-                {serviceId?.abtitle ? serviceId?.abtitle : "Act before it’s too late!"}
+                {serviceId?.abtitle
+                  ? serviceId?.abtitle
+                  : "Act before it’s too late!"}
               </p>
             </div>
             <div className="xl:mt-4 mt-2 relative">
               <p className="text-base xl:text-xl leading-7 text-gray-600 pr-4">
-                {serviceId?.abDescr ? serviceId?.abDescr : "Furniture that looks modern and is comfortable as well. Avail the 50% offer now."}
+                {serviceId?.abDescr
+                  ? serviceId?.abDescr
+                  : "Furniture that looks modern and is comfortable as well. Avail the 50% offer now."}
               </p>
               <div>
                 {/* The button to open modal */}
@@ -212,23 +241,20 @@ const ForumRegister = ({ serviceId }) => {
                   Join Now
                 </label>
                 {/* model details Part */}
-                <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+                <input
+                  type="checkbox"
+                  id="my-modal-3"
+                  className="modal-toggle"
+                />
                 <div className="modal">
                   <div className="modal-box relative">
                     <label
                       htmlFor="my-modal-3"
-
                       className="btn btn-sm btn-circle hover:bg-rose-600 hover:text-white absolute right-2 top-2"
                     >
                       ✕
                     </label>
-                    {/* <h3 className="text-lg font-bold">
-                Congratulations random Internet user!
-              </h3>
-              <p className="py-4">
-                You've been selected for a chance to get one year of
-                subscription to use Wikipedia for free!
-              </p> */}
+
                     {/* start */}
                     <div className="bg-white overflow-x-hidden">
                       <div className="mt-5">
@@ -245,7 +271,10 @@ const ForumRegister = ({ serviceId }) => {
 
                       <div className="card mx-auto bg-white mt-6">
                         {activeStep === 2 ? (
-                          <Typography variant="h3" className="align-center text-center p-5">
+                          <Typography
+                            variant="h3"
+                            className="align-center text-center p-5"
+                          >
                             Thanks for Joining
                           </Typography>
                         ) : (
@@ -254,12 +283,9 @@ const ForumRegister = ({ serviceId }) => {
                       </div>
                     </div>
                     {/* Ends */}
-
                   </div>
                 </div>
-
               </div>
-
             </div>
           </div>
           <div className="hidden relative md:block h-44 md:h-60 xl:h-72">
@@ -273,24 +299,108 @@ const ForumRegister = ({ serviceId }) => {
               src={joinUS}
               alt="pexels-dmitry-zvolskiy-2082090-1-1"
             />
-            {
-              user?.email === serviceId?.email ? <div className="absolute bottom-0 right-2">
-                <label htmlFor="my-modal-5" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-black py-2 px-3 border-black border-2">
-                  <HiPencilAlt className="mr-3 text-xl" />
-                  Edit
-                </h1></label>
-                <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+            {user?.email === serviceId?.email ? (
+              <div className="absolute bottom-0 right-2">
+                <label
+                  htmlFor="my-modal-5"
+                  className=" uppercase cursor-pointer"
+                >
+                  <h1 className="flex items-center full text-black py-2 px-3 border-black border-2">
+                    <HiPencilAlt className="mr-3 text-xl" />
+                    Edit
+                  </h1>
+                </label>
+                <input
+                  type="checkbox"
+                  id="my-modal-5"
+                  className="modal-toggle"
+                />
                 <div className="modal md:pt-10 pt-40 w-full overflow-scroll">
                   <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-black h-auto">
-                    <label htmlFor="my-modal-5" onClick={crossHandle} className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold">✕</label>
+                    <label
+                      htmlFor="my-modal-5"
+                      onClick={crossHandle}
+                      className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold"
+                    >
+                      ✕
+                    </label>
                     <AboutForm />
                   </div>
                 </div>
-              </div> : " "
-            }
+              </div>
+            ) : (
+              " "
+            )}
           </div>
         </div>
       </div>
+      {user?.email === serviceId?.email ? (
+        <>
+          <div className="md:w-72 w-5/12 mx-auto mt-8">
+            <label
+              htmlFor="my-modal-8"
+              className="w-full mx-auto bg-primary py-3 text-white px-3 font-mono text-xl rounded-lg"
+            >
+              {" "}
+              See all new members
+            </label>
+            <input type="checkbox" id="my-modal-8" className="modal-toggle" />
+            <div className="modal">
+              <div className="modal-box w-11/12  max-w-5xl">
+                <label
+                  htmlFor="my-modal-8"
+                  className="btn btn-sm btn-circle absolute right-2 top-2"
+                >
+                  ✕
+                </label>
+                <div ref={componentPDF}>
+                  <table className="w-full mt-8">
+                    <thead>
+                      <tr className="text-md font-semibold tracking-wide text-left text-gray-900  uppercase border-b border-gray-600">
+                        <th className="px-4 py-3">SL.</th>
+                        <th className="px-4 py-3">Student name</th>
+                        <th className="px-4 py-3">Student id</th>
+                        <th className="px-4 py-3">Student Number</th>
+                        <th className="px-4 py-3">Student Email</th>
+                        <th className="px-4 py-3">payment Id</th>
+                      </tr>
+                    </thead>
+                    <tbody className="">
+                      {member?.map((item, index) => (
+                        <tr className="text-gray-700">
+                          <td className="px-4 py-3 border">{index + 1}</td>
+                          <td className="px-4 py-3 border">{item?.name}</td>
+                          <td className="px-4 py-3 text-ms font-semibold border">
+                            {item?.studentId}
+                          </td>
+                          <td className="px-4 py-3 text-xs border">
+                            {item?.phone}
+                          </td>
+                          <td className="px-4 py-3 text-sm border">
+                            {item?.email}
+                          </td>
+                          <td className="px-4 py-3 text-sm border">
+                            {item?.payment}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <button
+                  onClick={generatePDF}
+                  className="bg-rose-600 rounded p-2 px-8 mt-5 text-white"
+                  type=""
+                >
+                  PDF
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        " "
+      )}
     </div>
   );
 };
