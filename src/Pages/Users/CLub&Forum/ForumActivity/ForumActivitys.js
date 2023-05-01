@@ -52,10 +52,9 @@ const ForumActivitys = ({ serviceId }) => {
                   </tr>
                 </thead>
                 <tbody className="">
-
-                  {
-                    activies.map(item => <tr className="text-gray-700">
-                      <td className="px-4 py-3 border">1</td>
+                  {activies.map((item, index) => (
+                    <tr className="text-gray-700">
+                      <td className="px-4 py-3 border">{ index+1}</td>
                       <td className="px-4 py-3 border">{item?.date}</td>
                       <td className="px-4 py-3 text-ms font-semibold border">
                         {item?.title}
@@ -63,15 +62,17 @@ const ForumActivitys = ({ serviceId }) => {
                       <td className="px-4 py-3 text-xs border">
                         {item?.description}
                       </td>
-                      <td className="px-4 py-3 text-sm border">{item?.student}</td>
-                    </tr>)
-                  }
+                      <td className="px-4 py-3 text-sm border">
+                        {item?.student}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
         </section>
-        <div className=''>
+        <div className="">
           {user?.email === serviceId?.email ? (
             <div className="absolute bottom-10 right-10 ">
               <label htmlFor="my-modal-8" className=" uppercase cursor-pointer">
