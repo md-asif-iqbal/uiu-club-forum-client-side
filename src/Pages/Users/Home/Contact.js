@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  const form = useRef();
+    const [done, setDone] = useState(false);
+   const sendEmail = (e) => {
+     e.preventDefault();
+    //  console.log("yes");
+
+     emailjs
+       .sendForm(
+         "service_r7cb437",
+         "template_mk0tw2w",
+         form.current,
+         "auuV7MB4LFzmg-azp"
+       )
+       .then(
+         (result) => {
+           console.log(result.text);
+           setDone(true);
+           form.current.reset();
+           toast.success("Thanks for Contact US");
+         },
+         (error) => {
+           console.log(error.text);
+         }
+       );
+   };
   return (
     <div>
       <section className="mt-40 mb-20">
@@ -133,11 +160,12 @@ const Contact = () => {
             </div>
             <div className="w-full lg:w-1/2 xl:w-5/12">
               <div className="text-secondary relative rounded-lg shadow-lg">
-                <form>
+                <form ref={form} onSubmit={sendEmail}>
                   <div className="my-6">
                     <input
                       type="text"
                       placeholder="Your Name"
+                      name="from_name"
                       className="
                         w-[300px]
                         rounded
@@ -156,6 +184,7 @@ const Contact = () => {
                     <input
                       type="email"
                       placeholder="Your Email"
+                      name="user_email"
                       className="
                         w-[300px]
                         rounded
@@ -174,6 +203,7 @@ const Contact = () => {
                     <input
                       type="text"
                       placeholder="Your Phone"
+                      name="user_phone"
                       className="
                         w-[300px]
                         input input-bordered border-2 border-primary
@@ -191,6 +221,7 @@ const Contact = () => {
                   <div className="mb-6">
                     <textarea
                       rows="6"
+                      name="message"
                       placeholder="Your Message"
                       className="
                         w-[300px]
@@ -207,9 +238,10 @@ const Contact = () => {
                     ></textarea>
                   </div>
                   <div className="flex justify-center">
-                    <button
+                    <input
                       type="submit"
                       className="
+                       cursor-pointer
                         w-full
                         text-white
                         bg-primary
@@ -217,11 +249,10 @@ const Contact = () => {
                         border border-primary
                         p-3 mb-4
                         transition
-                        hover:bg-opacity-90
+                        hover:bg-rose-600
                         "
-                    >
-                      Send Message
-                    </button>
+                      value="Send Message"
+                    />
                   </div>
                 </form>
                 <div>

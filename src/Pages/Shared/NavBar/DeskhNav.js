@@ -67,7 +67,7 @@ const DeskhNav = () => {
               {clubItem?.map((item) => (
                 <div
                   onClick={() => navigateDetails(item._id)}
-                  className="transition-all text-center hover:bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] text-sm hover:text-white duration-300 text-secondary font-bold"
+                  className="transition-all text-start hover:bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] text-sm hover:text-white duration-300 text-secondary font-bold"
                 >
                   {item?.serviceName}
                 </div>
@@ -100,7 +100,7 @@ const DeskhNav = () => {
               {forumItem?.map((item) => (
                 <div
                   onClick={() => navigateDetails(item._id)}
-                  className="transition-all text-center hover:bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] text-sm hover:text-white duration-300 text-secondary font-bold"
+                  className="transition-all text-start hover:bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] text-sm hover:text-white duration-300 text-secondary font-bold"
                 >
                   {item?.serviceName}
                 </div>
