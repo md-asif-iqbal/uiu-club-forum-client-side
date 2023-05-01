@@ -65,22 +65,24 @@ const ForumAnnouncment = ({ serviceId }) => {
                       New
                     </span>
                     <div
-                      className="w-1/2 ml-4 bg-cover"
+                      className="w-1/2 h-64 ml-4 bg-cover"
                       style={{
                         backgroundImage: `url(${item?.images})`,
                       }}
                     ></div>
                     <div className="flex flex-col justify-between w-1/2 px-4 space-y-16">
                       <div>
-                        <h1 className="mb-2 text-2xl font-bold leading-tight">
+                        <h1 className="mb-2 text-xl font-bold leading-tight">
                           {item?.name}
                         </h1>
                         <p className="text-sm text-gray-700">
-                          {item?.discript}
+                          {item.discript?.length > 60
+                            ? item.discript.slice(0, 120) + "..."
+                            : item.discript}
                         </p>
                       </div>
                       <div>
-                        <ul className="flex justify-center mt-4 space-x-3 text-xs text-gray-700">
+                        <ul className="flex justify-center  space-x-3 text-xs text-gray-700">
                           <li className="flex items-center">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +116,6 @@ const ForumAnnouncment = ({ serviceId }) => {
                     </div>
                   </div>
                 </div>
-               
               </SwiperSlide>
             ))}
           </div>
@@ -123,17 +124,17 @@ const ForumAnnouncment = ({ serviceId }) => {
       <div>
         {user?.email === serviceId.email ? (
           <div className="absolute bottom-0 right-10">
-            <label htmlFor="my-modal-6" className=" uppercase cursor-pointer">
+            <label htmlFor="my-modal-12" className=" uppercase cursor-pointer">
               <h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
                 <HiPencilAlt className="mr-3 text-xl" />
                 Post Announcment
               </h1>
             </label>
-            <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+            <input type="checkbox" id="my-modal-12" className="modal-toggle" />
             <div className="modal md:pt-10 pt-40 w-full overflow-scroll">
               <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-black h-auto">
                 <label
-                  htmlFor="my-modal-6"
+                  htmlFor="my-modal-12"
                   onClick={crossHandle}
                   className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold"
                 >

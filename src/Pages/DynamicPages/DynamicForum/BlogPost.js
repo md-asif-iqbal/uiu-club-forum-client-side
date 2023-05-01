@@ -26,9 +26,9 @@ const BlogPost = () => {
           const updateData = {
             email: user.email,
             decImg: img,
-            title: data.AnTitle,
-            titelCode: data.titleCode,
-            text: data.discript,
+            title: data.title,
+            date: data.date,
+            text: data.text,
           };
           fetch(`http://localhost:8000/blog`, {
             method: "POST",
@@ -38,7 +38,7 @@ const BlogPost = () => {
             body: JSON.stringify(updateData),
           }).then((res) => res.json());
           navigate("/");
-          toast("Successful ! Your Announcment Post");
+          toast("Successful ! Your Blogs Posted");
         }
       });
   };
@@ -47,7 +47,7 @@ const BlogPost = () => {
     <div className="flex justify-center items-center flex-wrap mt-8">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full text-secondary">
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap items-center">
             <div className="md:mr-14 mr-0">
               <label className="label">
                 <span className="label-text text-base text-white font-medium">
@@ -56,14 +56,23 @@ const BlogPost = () => {
               </label>
               <input
                 type="title"
-                placeholder="Enter Announcment title"
+                placeholder="Enter Blog title"
                 className="input text-white input-bordered input-white border-2 border-white bg-transparent w-full"
-                {...register("AnTitle", {
+                {...register("title", {
                   required: true,
                 })}
               />
             </div>
-            <div className="md:mr-14 mr-0">
+            <div className="md:mr-14">
+              <label className="text-white dark:text-gray-200">Date</label>
+              <input
+                type="date"
+                className="block px-4 py-2 mt-3 bg-transparent  w-full input font-mono text-lg border-2 border-white  text-white "
+                {...register("date")}
+                required
+              />
+            </div>
+            {/* <div className="md:mr-14 mr-0">
               <label className="label">
                 <span className="label-text text-base text-white font-medium">
                   Blog title Code
@@ -71,24 +80,24 @@ const BlogPost = () => {
               </label>
               <input
                 type="title"
-                placeholder="Enter Announcment title"
+                placeholder="Enter blog types"
                 className="input text-white input-bordered input-white border-2 border-white bg-transparent w-full"
                 {...register("titleCode", {
                   required: true,
                 })}
               />
-            </div>
-            <div className="">
+            </div> */}
+            <div className="w-full">
               <label className="label">
                 <span className="label-text text-base text-white font-medium">
                   Description
                 </span>
               </label>
-              <input
+              <textarea
                 type="name"
-                placeholder="Enter Short Titel"
-                className="input text-white input-bordered input-white border-2 border-white bg-transparent w-full"
-                {...register("discript", {
+                placeholder="Enter Short Title"
+                className=" text-white textarea textarea-accent h-24 border-2 border-white bg-transparent w-full"
+                {...register("text", {
                   required: true,
                 })}
               />
@@ -138,7 +147,7 @@ const BlogPost = () => {
         <input
           className="mt-4 mb-4 text-white border-[#521647] text-lg w-full py-3 rounded-lg font-bold border-2 bg-[#521647] cursor-pointer hover:bg-transparent hover:border-white"
           type="submit"
-          value="Post Announcment"
+          value="Post Blogs"
         />
       </form>
     </div>

@@ -23,6 +23,7 @@ const ForumBlogs = ({ serviceId }) => {
   const crossHandle = () => {
     setCancle(false)
   }
+  console.log(blog);
 
   return (
     <section className="">
@@ -46,7 +47,7 @@ const ForumBlogs = ({ serviceId }) => {
               </h1></label>
               <input type="checkbox" id="my-modal-6" className="modal-toggle" />
               <div className="modal md:pt-10 pt-40 w-full overflow-scroll">
-                <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-black h-auto">
+                <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-gray-600 h-auto">
                   <label htmlFor="my-modal-6" onClick={crossHandle} className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold">✕</label>
                   <BlogPost />
                 </div>

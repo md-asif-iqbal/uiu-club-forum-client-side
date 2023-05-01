@@ -30,7 +30,7 @@ const ForumBanner = ({ serviceId }) => {
               {serviceId?.shortTitle}
             </h2>
           </div>
-          <div className="relative overflow-hidden md:w-5/12 w-11/12 p-0 mx-auto">
+          {/* <div className="relative overflow-hidden md:w-5/12 w-11/12 p-0 mx-auto">
             <input
               type="text"
               className="  placeholder-[#6B707F] px-10 md:text-lg text-sm font-mono input py-10 w-full text-black bg-white"
@@ -40,7 +40,7 @@ const ForumBanner = ({ serviceId }) => {
               <ImSearch />
             </h1>
 
-          </div>
+          </div> */}
         </div>
       </div>
       {
