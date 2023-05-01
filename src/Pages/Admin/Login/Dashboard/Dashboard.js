@@ -54,9 +54,9 @@ const Dashboard = () => {
                 <li className="font-bold">
                   <Link to="/Dashboard/addNewEvents">Add new Event</Link>
                 </li>
-                <li className="font-bold">
+                {/* <li className="font-bold">
                   <Link to="/Dashboard/addReviews">Add News</Link>
-                </li>
+                </li> */}
                 <li className="font-bold">
                   <Link to="/Dashboard/add-new-blogs">Add New Blogs</Link>
                 </li>
