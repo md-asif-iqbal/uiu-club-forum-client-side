@@ -6,10 +6,10 @@ const AddNewEvent = () => {
   const { register, reset, handleSubmit } = useForm();
   const imgStorageKey = "f4df601fbbe9f7e258525727fabc681c";
   const onSubmit = (data) => {
-    console.log(data);
+  
     const image = data.img[0];
     const image2 = data.speakerImg[0];
-    console.log(image, "yes", image2);
+    
 
     const formData = new FormData();
     formData.append("image", image);
@@ -42,7 +42,7 @@ const AddNewEvent = () => {
             img: img,
             details: data.details,
           };
-          console.log(events);
+  
           //    send to your database
           fetch("http://localhost:8000/upcomingEvents", {
             method: "POST",

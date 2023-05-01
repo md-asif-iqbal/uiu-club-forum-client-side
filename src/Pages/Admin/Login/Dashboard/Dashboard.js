@@ -12,7 +12,7 @@ const Dashboard = () => {
   // {
   //   return <Loading/>
   //   }
-  console.log(admin);
+
     return (
       <div className="drawer drawer-end drawer-mobile mt-20">
         <input

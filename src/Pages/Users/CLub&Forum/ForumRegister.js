@@ -68,7 +68,7 @@ const ForumRegister = ({ serviceId }) => {
       });
   }, [member]);
   const filterMembers = (data) => {
-    console.log("yes");
+ 
     const updatedItems = data.filter((item) => {
       return item.serviceName === serviceId.serviceName;
     });

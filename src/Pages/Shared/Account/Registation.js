@@ -46,7 +46,7 @@ const Registation = () => {
     )
   }
 
-  console.log(updateProfile);
+
   const onSubmit = async (data) => {
     const displayName = data?.displayName;
     const email = data?.email;

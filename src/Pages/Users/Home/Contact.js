@@ -7,7 +7,7 @@ const Contact = () => {
     const [done, setDone] = useState(false);
    const sendEmail = (e) => {
      e.preventDefault();
-    //  console.log("yes");
+
 
      emailjs
        .sendForm(
@@ -38,16 +38,15 @@ const Contact = () => {
                 <span className="block mb-2 text-xl text-primary font-semibold">
                   Contact Us
                 </span>
-                <h2
-                  className="text-secondary mb-6 uppercase font-bold text-[32px] sm:text-[40px] lg:text-[36px] xl:text-[40px]
-                  "
-                >
-                  GET IN TOUCH WITH US
-                </h2>
+               
                 <p className="text-base text-secondary leading-relaxed mb-9">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eius tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim adiqua minim veniam quis nostrud exercitation ullamco
+                  Career Counseling Center assists students search and find
+                  suitable part time jobs. Arranges full time placements either
+                  immediately after graduation or over a period of time. Besides
+                  the placement function Career Counseling Center is also
+                  involved in arranging workshops and seminars to practice on
+                  resume writing, interview techniques, job search skills and
+                  presentation techniques.
                 </p>
                 <div className="flex mb-8 max-w-[370px] justify-center w-full">
                   <div
@@ -152,7 +151,7 @@ const Contact = () => {
                       Email Address
                     </h4>
                     <p className="text-base text-secondary text-md">
-                      nothing@gmail.com
+                      noreply.uiu@gmail.com
                     </p>
                   </div>
                 </div>

@@ -28,11 +28,11 @@ const EventsBlogs = () => {
      if (isLoading) {
        return <Loading></Loading>;
      }
-  console.log(eventBlogs.length);
 
-console.log(like , isLike);
+
+
   const handleReact = (id) => {
-    console.log(id);
+
     // if(userEamil === )
     // setLike(like + 1);
     // setIsLike("liked");

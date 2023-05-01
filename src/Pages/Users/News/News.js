@@ -16,7 +16,7 @@ const News = () => {
                 setDonars(data)
             })
     }, [])
-    console.log(donars);
+ 
 
     const lastPostIndex = currentPage * postsPerPage;
     const firstPostIndex = lastPostIndex - postsPerPage;

@@ -14,7 +14,7 @@ const ForumFAQ = ({ serviceId }) => {
   }
 
   const [faq, setFaq] = useState([])
-  console.log(faq);
+
   useEffect(() => {
     const email = serviceId?.email;
     const url = `http://localhost:8000/myfaq?email=${email}`;
@@ -25,7 +25,7 @@ const ForumFAQ = ({ serviceId }) => {
       .then(data => setFaq(data))
   }, [serviceId]);
 
-  console.log(serviceId.email);
+
   return (
     <div>
       <div className="relative">

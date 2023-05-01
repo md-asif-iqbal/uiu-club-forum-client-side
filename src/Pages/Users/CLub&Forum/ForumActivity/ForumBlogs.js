@@ -23,7 +23,7 @@ const ForumBlogs = ({ serviceId }) => {
   const crossHandle = () => {
     setCancle(false)
   }
-  console.log(blog);
+
 
   return (
     <section className="">

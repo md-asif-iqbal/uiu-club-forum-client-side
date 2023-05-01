@@ -31,7 +31,7 @@ const Banner = () => {
       }
    
    
-      // console.log(search);
+
     
   }
   const navigateDetails = (item) => {
@@ -40,10 +40,10 @@ const Banner = () => {
         return data.serviceName === item;
       });
     let id = mainData[0]._id;
-    // console.log(mainData[0]);
+  
       navigate(`/service/${id}`);
     };
-  // console.log(searchItem);
+
   
   const [user] = useAuthState(auth)
   return (

@@ -18,7 +18,7 @@ const ForumAnnouncment = ({ serviceId }) => {
 
 
   const [announcment, setAnnouncment] = useState([])
-  console.log(announcment);
+
   useEffect(() => {
     const email = serviceId?.email
     const url = `http://localhost:8000/myAnnouncment?email=${email}`;

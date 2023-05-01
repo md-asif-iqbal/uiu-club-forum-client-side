@@ -25,7 +25,7 @@ const EventsBanner = ({ data }) => {
     const phoneNumber = event.phoneNumber;
     const post = { eventName, name, studentID, phoneNumber };
 
-    console.log(post);
+
     const url = `http://localhost:8000/eventRegistration`;
     fetch(url, {
       method: "POST",

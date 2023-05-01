@@ -13,7 +13,7 @@ const CheckoutForm = ({ custom, serviceId }) => {
 
   const amount = 350
 
-  console.log(custom);
+
   useEffect(() => {
     if (amount) {
       fetch(
@@ -28,7 +28,7 @@ const CheckoutForm = ({ custom, serviceId }) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data)
+     
           if (data?.clientSecret) {
             setClientSecret(data.clientSecret);
           }
@@ -60,11 +60,7 @@ const CheckoutForm = ({ custom, serviceId }) => {
 
     setCardError(error?.message || "");
     setSuccess("");
-    if (error) {
-      console.log("[error]", error);
-    } else {
-      console.log("[PaymentMethod]", paymentMethod);
-    }
+  
 
 
 
@@ -84,7 +80,7 @@ const CheckoutForm = ({ custom, serviceId }) => {
     } else {
       setCardError("");
       setTransactionId(paymentIntent.id);
-      console.log(paymentIntent);
+ 
       setSuccess(`Congrats! Your Payment is completed`);
       setProcessing(false);
       event.target.reset();

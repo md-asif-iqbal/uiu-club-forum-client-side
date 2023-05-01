@@ -21,7 +21,7 @@ const ClubRegistration = () => {
         id: 2,
       },
     ];
-    console.log(mcq.length);
+ 
     const [activeStep, setActiveStep] = useState(0);
     const handleNext = () => {
       setActiveStep(activeStep + 1);

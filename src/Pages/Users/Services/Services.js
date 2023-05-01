@@ -14,15 +14,15 @@ const Services = () => {
     const { id } = useParams();
     useEffect(() => {
         const url = `http://localhost:8000/service/${id}`;
-        console.log(url);
+     
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 setServiceId(data)
-                console.log(data);
+               
             });
     }, [id]);
-    console.log(serviceId)
+    
 
     return (
         <div>

@@ -10,7 +10,7 @@ const VolunteerRequest = () => {
     onAfterPrint:()=> alert("Register Data is Saved")
   });
   let data = useLoaderData();
-  console.log(data);
+
     return (
       <div>
         <section className="container mx-auto p-6 font-mono mt-5">

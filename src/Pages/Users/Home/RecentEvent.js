@@ -7,7 +7,7 @@ import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 const RecentEvent = () => {
   const [items, setItems] = useState();
-  console.log(items);
+ 
   const url = `http://localhost:8000/recentEvents`;
   const {
     data: recentEvents,
