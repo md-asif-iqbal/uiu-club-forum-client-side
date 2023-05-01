@@ -63,7 +63,7 @@ const ForumActivitys = ({ serviceId }) => {
                         {item?.description}
                       </td>
                       <td className="px-4 py-3 text-sm border">
-                        {item?.student}
+                        {item?.student} 
                       </td>
                     </tr>
                   ))}

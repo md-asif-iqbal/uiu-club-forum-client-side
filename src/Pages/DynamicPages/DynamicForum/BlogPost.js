@@ -9,7 +9,7 @@ const BlogPost = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const imgStorageKey = "f4df601fbbe9f7e258525727fabc681c";
+  const imgStorageKey = "058582fd7ce562d09cfe637cf2190600";
   const onSubmit = (data) => {
     const image = data.image[0];
     const formData = new FormData();

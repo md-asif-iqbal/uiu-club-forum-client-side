@@ -4,12 +4,10 @@ import { ToastContainer, toast } from "react-toastify";
 const AddNewEvent = () => {
   const [img, setImg] = useState();
   const { register, reset, handleSubmit } = useForm();
-  const imgStorageKey = "f4df601fbbe9f7e258525727fabc681c";
+  const imgStorageKey = "058582fd7ce562d09cfe637cf2190600";
   const onSubmit = (data) => {
-  
     const image = data.img[0];
     const image2 = data.speakerImg[0];
-    
 
     const formData = new FormData();
     formData.append("image", image);
@@ -42,7 +40,7 @@ const AddNewEvent = () => {
             img: img,
             details: data.details,
           };
-  
+
           //    send to your database
           fetch("http://localhost:8000/upcomingEvents", {
             method: "POST",

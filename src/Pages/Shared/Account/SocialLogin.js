@@ -7,6 +7,7 @@ import auth from '../../../firebase.init';
 import Loading from '../Loading/Loading';
 import useToken from '../../../Hooks/UseToken';
 const SocialLogin = () => {
+
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
