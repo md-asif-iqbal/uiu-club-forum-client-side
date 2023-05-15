@@ -12,7 +12,7 @@ const SocialLogin = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    //   const [token] = useToken(user);
+      const [token] = useToken(user);
     if (error) {
         return (
             <>

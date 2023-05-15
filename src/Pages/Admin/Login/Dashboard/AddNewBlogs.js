@@ -4,13 +4,13 @@ import { ToastContainer, toast } from "react-toastify";
 const AddNewBlogs = () => {
   const { register, reset, handleSubmit } = useForm();
 
-  const imgStorageKey = "058582fd7ce562d09cfe637cf2190600";
+  const imgStorageKey = "4a61042a9b5e9768554933fea17bbd17";
 
   const onSubmit = (data) => {
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
+    const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
     fetch(url, {
       method: "POST",
       body: formData,

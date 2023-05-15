@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -45,22 +46,19 @@ const Footer = () => {
                     {" "}
                     Home{" "}
                   </a>
-                  <a className="inline-block" href="d">
+                  <Link to="/upcoming-events" className="inline-block" href="d">
                     {" "}
-                    Services{" "}
-                  </a>
-                  <a className="inline-block" href="d">
+                    Uncoming Event{" "}
+                  </Link>
+                  <Link tp="/" className="inline-block" href="d">
                     {" "}
-                    Accounts Review{" "}
-                  </a>
-                  <a className="inline-block" href="d">
+                    Home{" "}
+                  </Link>
+                  <Link to="/news" className="inline-block" href="d">
                     {" "}
-                    Event{" "}
-                  </a>
-                  <a className="inline-block" href="d">
-                    {" "}
-                    Donation{" "}
-                  </a>
+                    News{" "}
+                  </Link>
+                  
                 </nav>
               </div>
 

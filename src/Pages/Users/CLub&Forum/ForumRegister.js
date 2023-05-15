@@ -143,7 +143,7 @@ const ForumRegister = ({ serviceId }) => {
                     <button
                       type="submit"
                       value="Submit"
-                      className=" text-gray-700 px-8 rounded py-2 mb-5 bg-green-500"
+                      className=" text-white font-bold  px-8 rounded py-2 mb-5 bg-green-500"
                     >
                       Submit
                     </button>
@@ -153,7 +153,7 @@ const ForumRegister = ({ serviceId }) => {
                     <button
                       onClick={handleNext}
                       disabled={activeStep === 3}
-                      className=" text-gray-700 px-8 rounded py-2 mb-5 bg-blue-500"
+                      className=" text-white font-bold px-10 rounded py-2 mb-5 bg-blue-500"
                     >
                       {activeStep === 2 ? "Finish" : "Next"}
                     </button>

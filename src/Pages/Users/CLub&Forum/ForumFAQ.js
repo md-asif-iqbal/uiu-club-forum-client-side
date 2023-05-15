@@ -61,14 +61,14 @@ const ForumFAQ = ({ serviceId }) => {
         <div>
           {
             user?.email === serviceId?.email ? <div className="absolute bottom-10 right-10">
-              <label htmlFor="my-modal-8" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
+              <label htmlFor="my-modal-18" className=" uppercase cursor-pointer"><h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
                 <HiPencilAlt className="mr-3 text-xl" />
                 Post Faq
               </h1></label>
-              <input type="checkbox" id="my-modal-8" className="modal-toggle" />
+              <input type="checkbox" id="my-modal-18" className="modal-toggle" />
               <div className="modal md:pt-10 pt-40 w-full overflow-scroll">
                 <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-black h-auto">
-                  <label htmlFor="my-modal-8" onClick={crossHandle} className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold">✕</label>
+                  <label htmlFor="my-modal-18" onClick={crossHandle} className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold">✕</label>
                   <PostFaq />
                 </div>
               </div>

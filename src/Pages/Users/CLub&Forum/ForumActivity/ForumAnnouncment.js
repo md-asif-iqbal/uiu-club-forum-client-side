@@ -13,14 +13,14 @@ const ForumAnnouncment = ({ serviceId }) => {
   const [user] = useAuthState(auth);
   const [, setCancle] = useState(false);
   const crossHandle = () => {
-    setCancle(false)
-  }
+    setCancle(false);
+  };
 
+  const [announcment, setAnnouncment] = useState([]);
 
-  const [announcment, setAnnouncment] = useState([])
 
   useEffect(() => {
-    const email = serviceId?.email
+    const email = serviceId?.email;
     const url = `http://localhost:8000/myAnnouncment?email=${email}`;
     fetch(url, {
       method: "GET",
@@ -122,19 +122,19 @@ const ForumAnnouncment = ({ serviceId }) => {
         </Swiper>
       </div>
       <div>
-        {user?.email === serviceId.email ? (
-          <div className="absolute bottom-0 right-10">
-            <label htmlFor="my-modal-12" className=" uppercase cursor-pointer">
+        {user?.email === serviceId?.email ? (
+          <div className="absolute mt-4 bottom-0 right-2">
+            <label htmlFor="my-modal-1" className=" uppercase cursor-pointer">
               <h1 className="flex items-center full text-primary py-2 px-3 border-primary border-2">
                 <HiPencilAlt className="mr-3 text-xl" />
-                Post Announcment
+                Announcment Post
               </h1>
             </label>
-            <input type="checkbox" id="my-modal-12" className="modal-toggle" />
+            <input type="checkbox" id="my-modal-1" className="modal-toggle" />
             <div className="modal md:pt-10 pt-40 w-full overflow-scroll">
-              <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-black h-auto">
+              <div className="relative w-full rounded-lg md:w-9/12 lg:w-7/12 bg-gray-600 h-auto">
                 <label
-                  htmlFor="my-modal-12"
+                  htmlFor="my-modal-1"
                   onClick={crossHandle}
                   className=" btn-sm text-white btn-circle absolute right-0 top-3 text-2xl font-bold"
                 >

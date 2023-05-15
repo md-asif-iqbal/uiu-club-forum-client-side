@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 const AddNewEvent = () => {
   const [img, setImg] = useState();
   const { register, reset, handleSubmit } = useForm();
-  const imgStorageKey = "058582fd7ce562d09cfe637cf2190600";
+  const imgStorageKey = "4a61042a9b5e9768554933fea17bbd17";
   const onSubmit = (data) => {
     const image = data.img[0];
     const image2 = data.speakerImg[0];
@@ -13,7 +13,7 @@ const AddNewEvent = () => {
     formData.append("image", image);
     const formDatas = new FormData();
     formDatas.append("image", image2);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
+    const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -22,7 +22,7 @@ const AddNewEvent = () => {
       .then((result) => {
         setImg(result.data.url);
       });
-    const url1 = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
+    const url1 = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
     fetch(url1, {
       method: "POST",
       body: formDatas,
