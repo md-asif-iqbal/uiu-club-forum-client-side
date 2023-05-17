@@ -42,7 +42,7 @@ const AddNewEvent = () => {
           };
 
           //    send to your database
-          fetch("http://localhost:8000/upcomingEvents", {
+          fetch("https://uiu-club-forums.onrender.com/upcomingEvents", {
             method: "POST",
             headers: {
               "content-type": "application/json",

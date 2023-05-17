@@ -7,8 +7,8 @@ import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 const RecentEvent = () => {
   const [items, setItems] = useState();
- 
-  const url = `http://localhost:8000/recentEvents`;
+
+  const url = `https://uiu-club-forums.onrender.com/recentEvents`;
   const {
     data: recentEvents,
     isLoading,
@@ -122,11 +122,9 @@ const RecentEvent = () => {
                           {items?.title}
                         </h1>
 
-                        <p class="text-sm mt-2 w-full">{ items?.details}</p>
+                        <p class="text-sm mt-2 w-full">{items?.details}</p>
                       </div>
                     </div>
-
-                    
                   </div>
                 </div>
               </div>

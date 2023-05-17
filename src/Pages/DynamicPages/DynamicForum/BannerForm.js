@@ -28,13 +28,16 @@ const BannerForm = () => {
             title: data.title,
             shortTitle: data.shTitle,
           };
-          fetch(`http://localhost:8000/user/service/${user?.email}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(updateData),
-          }).then((res) => res.json());
+          fetch(
+            `https://uiu-club-forums.onrender.com/user/service/${user?.email}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(updateData),
+            }
+          ).then((res) => res.json());
           navigate("/");
           toast("Updated");
         }

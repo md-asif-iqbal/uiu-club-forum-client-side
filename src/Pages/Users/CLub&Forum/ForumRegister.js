@@ -15,7 +15,7 @@ import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useReactToPrint } from "react-to-print";
 const ForumRegister = ({ serviceId }) => {
-   const componentPDF = useRef();
+  const componentPDF = useRef();
   const generatePDF = useReactToPrint({
     content: () => componentPDF.current,
     documentTitle: "NewMembersData",
@@ -59,7 +59,7 @@ const ForumRegister = ({ serviceId }) => {
     setCancle(false);
   };
   const [member, setMember] = useState([]);
-  const url = `http://localhost:8000/custom`;
+  const url = `https://uiu-club-forums.onrender.com/custom`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -68,7 +68,6 @@ const ForumRegister = ({ serviceId }) => {
       });
   }, [member]);
   const filterMembers = (data) => {
- 
     const updatedItems = data.filter((item) => {
       return item.serviceName === serviceId.serviceName;
     });

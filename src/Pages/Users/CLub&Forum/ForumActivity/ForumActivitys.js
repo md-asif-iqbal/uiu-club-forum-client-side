@@ -1,11 +1,11 @@
-import React from 'react';
-import ActivityPost from '../../../DynamicPages/DynamicForum/ActivityPost';
+import React from "react";
+import ActivityPost from "../../../DynamicPages/DynamicForum/ActivityPost";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import { HiPencilAlt } from "react-icons/hi";
-import auth from '../../../../firebase.init';
+import auth from "../../../../firebase.init";
 const ForumActivitys = ({ serviceId }) => {
   const [user] = useAuthState(auth);
   const [, setCancle] = useState(false);
@@ -16,7 +16,7 @@ const ForumActivitys = ({ serviceId }) => {
   const [activies, setActivies] = useState([]);
   useEffect(() => {
     const email = serviceId?.email;
-    const url = `http://localhost:8000/myActivites?email=${email}`;
+    const url = `https://uiu-club-forums.onrender.com/myActivites?email=${email}`;
     fetch(url, {
       method: "GET",
     })
@@ -54,7 +54,7 @@ const ForumActivitys = ({ serviceId }) => {
                 <tbody className="">
                   {activies.map((item, index) => (
                     <tr className="text-gray-700">
-                      <td className="px-4 py-3 border">{ index+1}</td>
+                      <td className="px-4 py-3 border">{index + 1}</td>
                       <td className="px-4 py-3 border">{item?.date}</td>
                       <td className="px-4 py-3 text-ms font-semibold border">
                         {item?.title}
@@ -63,7 +63,7 @@ const ForumActivitys = ({ serviceId }) => {
                         {item?.description}
                       </td>
                       <td className="px-4 py-3 text-sm border">
-                        {item?.student} 
+                        {item?.student}
                       </td>
                     </tr>
                   ))}

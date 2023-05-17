@@ -26,7 +26,7 @@ const AddNewBlogs = () => {
             description: data.description,
           };
           // send to your database
-          fetch("http://localhost:8000/postblogs", {
+          fetch("https://uiu-club-forums.onrender.com/postblogs", {
             method: "POST",
             headers: {
               "content-type": "application/json",

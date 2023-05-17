@@ -1,13 +1,12 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import auth from "../../../firebase.init";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const NewClubForum = () => {
-
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit } = useForm();
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -18,18 +17,17 @@ const NewClubForum = () => {
       service: data.title,
       serviceName: data.serviceName,
       bio: data.describe,
-      phone: data.phone
-    }
-    fetch(`http://localhost:8000/allrequest`, {
+      phone: data.phone,
+    };
+    fetch(`https://uiu-club-forums.onrender.com/allrequest`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(req),
-    })
-      .then((res) => res.json())
-    navigate("/")
-    toast("Successful ! Your Request Send")
+    }).then((res) => res.json());
+    navigate("/");
+    toast("Successful ! Your Request Send");
   };
 
   return (
@@ -163,4 +161,4 @@ const NewClubForum = () => {
     </div>
   );
 };
-export default NewClubForum
+export default NewClubForum;

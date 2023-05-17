@@ -11,24 +11,19 @@ const CheckoutForm = ({ custom, serviceId }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
 
-  const amount = 350
-
+  const amount = 350;
 
   useEffect(() => {
     if (amount) {
-      fetch(
-        "http://localhost:8000/create-payment-intent",
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ amount }),
-        }
-      )
+      fetch("https://uiu-club-forums.onrender.com/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ amount }),
+      })
         .then((res) => res.json())
         .then((data) => {
-     
           if (data?.clientSecret) {
             setClientSecret(data.clientSecret);
           }
@@ -43,7 +38,6 @@ const CheckoutForm = ({ custom, serviceId }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-
     if (!stripe || !elements) {
       return;
     }
@@ -54,15 +48,10 @@ const CheckoutForm = ({ custom, serviceId }) => {
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
-    })
-
-
+    });
 
     setCardError(error?.message || "");
     setSuccess("");
-  
-
-
 
     // confrim card payment
     setProcessing(true);
@@ -80,7 +69,7 @@ const CheckoutForm = ({ custom, serviceId }) => {
     } else {
       setCardError("");
       setTransactionId(paymentIntent.id);
- 
+
       setSuccess(`Congrats! Your Payment is completed`);
       setProcessing(false);
       event.target.reset();
@@ -90,20 +79,17 @@ const CheckoutForm = ({ custom, serviceId }) => {
         serviceName: serviceId.serviceName,
         name: custom.name,
         phone: custom.phone,
-        payment: paymentIntent.id
-      }
-      fetch(`http://localhost:8000/custom`, {
+        payment: paymentIntent.id,
+      };
+      fetch(`https://uiu-club-forums.onrender.com/custom`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(req),
-      })
-        .then((res) => res.json())
-        toast('Succesfully Joined')
+      }).then((res) => res.json());
+      toast("Succesfully Joined");
     }
-
-
   };
 
   return (
@@ -113,7 +99,6 @@ const CheckoutForm = ({ custom, serviceId }) => {
         style={{ display: "inline" }}
         onSubmit={handleSubmit}
       >
-
         <CardElement
           options={{
             style: {
@@ -132,17 +117,17 @@ const CheckoutForm = ({ custom, serviceId }) => {
         />
 
         <div className="mt-10 mb-5">
-          <button className="pay-btn bg-rose-600 text-white font-bold p-1 px-5 rounded" type="submit" disabled={!stripe}>
+          <button
+            className="pay-btn bg-rose-600 text-white font-bold p-1 px-5 rounded"
+            type="submit"
+            disabled={!stripe}
+          >
             Pay
           </button>
         </div>
       </form>
 
-      {processing && (
-        <div className="mx-auto">
-          Loading
-        </div>
-      )}
+      {processing && <div className="mx-auto">Loading</div>}
       {cardError && <p style={{ color: "blue" }}>{cardError}</p>}
       {success && (
         <div style={{ color: "green" }}>

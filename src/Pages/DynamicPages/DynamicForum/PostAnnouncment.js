@@ -29,7 +29,7 @@ const PostAnnouncment = () => {
             name: data.AnTitle,
             discript: data.discript,
           };
-          fetch(`http://localhost:8000/announcment`, {
+          fetch(`https://uiu-club-forums.onrender.com/announcment`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

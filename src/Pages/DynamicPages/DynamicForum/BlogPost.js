@@ -30,7 +30,7 @@ const BlogPost = () => {
             date: data.date,
             text: data.text,
           };
-          fetch(`http://localhost:8000/blog`, {
+          fetch(`https://uiu-club-forums.onrender.com/blog`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

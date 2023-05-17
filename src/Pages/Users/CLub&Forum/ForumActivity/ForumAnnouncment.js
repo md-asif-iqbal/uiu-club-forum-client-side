@@ -18,10 +18,9 @@ const ForumAnnouncment = ({ serviceId }) => {
 
   const [announcment, setAnnouncment] = useState([]);
 
-
   useEffect(() => {
     const email = serviceId?.email;
-    const url = `http://localhost:8000/myAnnouncment?email=${email}`;
+    const url = `https://uiu-club-forums.onrender.com/myAnnouncment?email=${email}`;
     fetch(url, {
       method: "GET",
     })

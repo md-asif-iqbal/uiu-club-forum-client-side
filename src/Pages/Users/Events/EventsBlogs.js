@@ -9,12 +9,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 const EventsBlogs = () => {
-
   const [user] = useAuthState(auth);
   const userEamil = user?.email;
   const [like, setLike] = useState(0);
   const [isLike, setIsLike] = useState();
-  const url = `http://localhost:8000/eventblogs`;
+  const url = `https://uiu-club-forums.onrender.com/eventblogs`;
   const {
     data: eventBlogs,
     isLoading,
@@ -25,19 +24,16 @@ const EventsBlogs = () => {
     }).then((res) => res.json())
   );
 
-     if (isLoading) {
-       return <Loading></Loading>;
-     }
-
-
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   const handleReact = (id) => {
-
     // if(userEamil === )
     // setLike(like + 1);
     // setIsLike("liked");
-  }
-  
+  };
+
   return (
     <div>
       <div className="text-center ">

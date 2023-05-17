@@ -1,6 +1,11 @@
 import "react-toastify/dist/ReactToastify.css";
 
-import { Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
+import {
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 import Dashboard from "./Pages/Admin/Login/Dashboard/Dashboard";
@@ -36,29 +41,26 @@ import AddNewEvent from "./Pages/Admin/Login/Dashboard/AddNewEvent";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
 
 function App() {
-
-
-
-   const url = `http://localhost:8000/eventRegistration`;
-   const {
-     data: datas,
-     isLoading,
-     refetch,
-   } = useQuery(["data"], () =>
-     fetch(url, {
-       method: "GET",
-     }).then((res) => res.json())
-   );
-   if (isLoading ) {
-     return <Loading></Loading>;
-   }
-   const divideData = (param = "") => {
-     const data = datas;
-     const mainData = data.filter((item) => {
-       return item.eventName === param;
-     });
-     return mainData;
-   };
+  const url = `https://uiu-club-forums.onrender.com/eventRegistration`;
+  const {
+    data: datas,
+    isLoading,
+    refetch,
+  } = useQuery(["data"], () =>
+    fetch(url, {
+      method: "GET",
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+  const divideData = (param = "") => {
+    const data = datas;
+    const mainData = data.filter((item) => {
+      return item.eventName === param;
+    });
+    return mainData;
+  };
 
   const router = createBrowserRouter([
     {
@@ -189,7 +191,6 @@ function App() {
     },
   ]);
   return (
-
     <div className="font-mono">
       <RouterProvider router={router} />
       <ToastContainer />
