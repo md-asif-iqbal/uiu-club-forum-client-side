@@ -19,7 +19,7 @@ const NewClubForum = () => {
       bio: data.describe,
       phone: data.phone,
     };
-    fetch(`https://uiu-club-forums.onrender.com/allrequest`, {
+    fetch(`https://uiu-club-forum-server-side.vercel.app/allrequest`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -33,7 +33,7 @@ const NewClubForum = () => {
   return (
     <div>
       <section>
-        <div className="bg-gray-200">
+        <div className="bg-gradient-to-r from-[#64CEE6] to-[#45ddd0]">
           <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 text-gray-900">
             <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-900">
               Hey are you create new club or forum ?
@@ -42,30 +42,11 @@ const NewClubForum = () => {
               Please follow the instruction and submit the avidance !
             </p>
             <div className="flex flex-wrap justify-center">
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg font-semibold rounded bg-primary text-gray-50"
-              >
-                Get started
-              </button>
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg border rounded border-gray-700 text-gray-900"
-              >
-                Learn more
-              </button>
+              
             </div>
           </div>
         </div>
-        <img
-          src="https://source.unsplash.com/random/480x320"
-          alt=""
-          className="w-5/6 mx-auto mb-12 h-56 -mt-20 rounded-lg shadow-md lg:-mt-40 bg-gray-500"
-        />
-      </section>
-
-      <section>
-        <section className="p-8  text-black mb-10">
+        <section className="p-8  text-black  mx-auto -mt-20 rounded-lg shadow-xl lg:-mt-40 bg-gradient-to-r from-[#5bc8e0] to-[#45ddd0]">
           <form
             onSubmit={handleSubmit(onSubmit)}
             novalidate=""
@@ -74,8 +55,8 @@ const NewClubForum = () => {
           >
             <fieldset className="grid grid-cols-4 gap-6 p-8 rounded-md shadow-sm bg-gray-200">
               <div className="space-y-2 col-span-full lg:col-span-1">
-                <p className="font-medium">New Forum or Club Request</p>
-                <p className="text-xs">Adipisci fuga autem eum!</p>
+                <p className="font-bold text-center">New Forum or Club Request</p>
+               
               </div>
               <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                 <div className="col-span-full sm:col-span-3">
@@ -157,6 +138,15 @@ const NewClubForum = () => {
             </fieldset>
           </form>
         </section>
+        {/* <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN7ZWjOpgGpFboqTMwecJ8Brm0y_KpqIeeqw&s"
+          alt=""
+          className="w-5/6 mx-auto mb-12 h-56 -mt-20 rounded-lg shadow-md lg:-mt-40 bg-gradient-to-r from-[#5bc8e0] to-[#45ddd0]"
+        /> */}
+      </section>
+
+      <section>
+   
       </section>
     </div>
   );

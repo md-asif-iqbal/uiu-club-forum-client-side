@@ -12,7 +12,7 @@ const ForumBlogs = ({ serviceId }) => {
   const [blog, setBlog] = useState([]);
   useEffect(() => {
     const email = serviceId?.email;
-    const url = `https://uiu-club-forums.onrender.com/myBlog?email=${email}`;
+    const url = `https://uiu-club-forum-server-side.vercel.app/myBlog?email=${email}`;
     fetch(url, {
       method: "GET",
     })

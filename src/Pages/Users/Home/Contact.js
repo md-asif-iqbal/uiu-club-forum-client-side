@@ -116,7 +116,7 @@ const Contact = () => {
                     <h4 className="font-bold text-secondary text-xl mb-1">
                       Phone Number
                     </h4>
-                    <p className="text-secondary">+88017157.124</p>
+                    <p className="text-secondary">+880 1715779924</p>
                   </div>
                 </div>
                 <div className="flex mb-8 max-w-[370px] w-full">
@@ -151,7 +151,7 @@ const Contact = () => {
                       Email Address
                     </h4>
                     <p className="text-base text-secondary text-md">
-                      noreply.uiu@gmail.com
+                      md.asifiqbal2008@gmail.com
                     </p>
                   </div>
                 </div>

@@ -13,11 +13,10 @@ import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import { Link } from "react-router-dom";
 const UpcomingEvents = () => {
-  const url = `https://uiu-club-forums.onrender.com/upcomingEvents`;
+  const url = `https://uiu-club-forum-server-side.vercel.app/upcomingEvents`;
   const {
     data: upcomingEvents,
     isLoading,
-    refetch,
   } = useQuery(["upcomingEvents"], () =>
     fetch(url, {
       method: "GET",
@@ -77,7 +76,7 @@ const UpcomingEvents = () => {
             clickable: true,
           }}
           modules={[Autoplay, Pagination]}
-          className="mySwiper"
+          className="mySwiper grid grid-cols-1"
         >
           {upcomingEvents.map((item) => (
             <SwiperSlide key={item._id}>

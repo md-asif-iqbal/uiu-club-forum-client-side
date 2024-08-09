@@ -29,7 +29,7 @@ const PostAnnouncment = () => {
             name: data.AnTitle,
             discript: data.discript,
           };
-          fetch(`https://uiu-club-forums.onrender.com/announcment`, {
+          fetch(`https://uiu-club-forum-server-side.vercel.app/announcment`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

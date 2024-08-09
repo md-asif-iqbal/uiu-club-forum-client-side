@@ -41,7 +41,7 @@ import AddNewEvent from "./Pages/Admin/Login/Dashboard/AddNewEvent";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
 
 function App() {
-  const url = `https://uiu-club-forums.onrender.com/eventRegistration`;
+  const url = `https://uiu-club-forum-server-side.vercel.app/eventRegistration`;
   const {
     data: datas,
     isLoading,

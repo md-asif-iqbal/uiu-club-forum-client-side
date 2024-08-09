@@ -25,7 +25,7 @@ const EventsBanner = ({ data }) => {
     const phoneNumber = event.phoneNumber;
     const post = { eventName, name, studentID, phoneNumber };
 
-    const url = `https://uiu-club-forums.onrender.com/eventRegistration`;
+    const url = `https://uiu-club-forum-server-side.vercel.app/eventRegistration`;
     fetch(url, {
       method: "POST",
       headers: {

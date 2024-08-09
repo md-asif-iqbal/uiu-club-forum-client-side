@@ -20,7 +20,7 @@ const ForumAnnouncment = ({ serviceId }) => {
 
   useEffect(() => {
     const email = serviceId?.email;
-    const url = `https://uiu-club-forums.onrender.com/myAnnouncment?email=${email}`;
+    const url = `https://uiu-club-forum-server-side.vercel.app/myAnnouncment?email=${email}`;
     fetch(url, {
       method: "GET",
     })

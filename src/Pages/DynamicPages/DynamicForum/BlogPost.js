@@ -30,7 +30,7 @@ const BlogPost = () => {
             date: data.date,
             text: data.text,
           };
-          fetch(`https://uiu-club-forums.onrender.com/blog`, {
+          fetch(`https://uiu-club-forum-server-side.vercel.app/blog`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

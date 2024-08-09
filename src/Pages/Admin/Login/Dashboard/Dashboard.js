@@ -28,8 +28,8 @@ const Dashboard = () => {
           <ul className="menu p-4  overflow-y-auto gap-2 w-50 bg-gradient-to-r from-[#64CEE6] to-[#45ddd0] rounded text-white ">
             {/* <!-- Sidebar content here --> */}
 
-            {
-              admin && (
+            {/* {
+              admin && ( */}
               <>
                 <li className="font-bold">
                   <Link to="/Dashboard">Dashboard</Link>
@@ -61,7 +61,7 @@ const Dashboard = () => {
                   <Link to="/Dashboard/add-new-blogs">Add New Blogs</Link>
                 </li>
               </>
-            )}
+            {/* )} */}
 
             {/* admin role only */}
 

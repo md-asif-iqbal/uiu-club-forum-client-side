@@ -13,7 +13,7 @@ const Services = () => {
   const [serviceId, setServiceId] = useState([]);
   const { id } = useParams();
   useEffect(() => {
-    const url = `https://uiu-club-forums.onrender.com/service/${id}`;
+    const url = `https://uiu-club-forum-server-side.vercel.app/service/${id}`;
 
     fetch(url)
       .then((res) => res.json())

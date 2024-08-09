@@ -16,7 +16,7 @@ const ActivityPost = () => {
       student: data.student,
       date: data.date,
     };
-    fetch(`https://uiu-club-forums.onrender.com/activites`, {
+    fetch(`https://uiu-club-forum-server-side.vercel.app/activites`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

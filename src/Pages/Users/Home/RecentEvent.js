@@ -8,7 +8,7 @@ import Loading from "../../Shared/Loading/Loading";
 const RecentEvent = () => {
   const [items, setItems] = useState();
 
-  const url = `https://uiu-club-forums.onrender.com/recentEvents`;
+  const url = `https://uiu-club-forum-server-side.vercel.app/recentEvents`;
   const {
     data: recentEvents,
     isLoading,
@@ -49,7 +49,7 @@ const RecentEvent = () => {
         <div className="">
           {recentEvents?.map((item) => (
             <>
-              <SwiperSlide>
+              <SwiperSlide className="">
                 <div className="flex flex-col mx-auto  pb-16 ">
                   <div className="">
                     <img

@@ -59,7 +59,7 @@ const ForumRegister = ({ serviceId }) => {
     setCancle(false);
   };
   const [member, setMember] = useState([]);
-  const url = `https://uiu-club-forums.onrender.com/custom`;
+  const url = `https://uiu-club-forum-server-side.vercel.app/custom`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

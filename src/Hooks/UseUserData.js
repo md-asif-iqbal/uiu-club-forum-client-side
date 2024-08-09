@@ -9,7 +9,7 @@ const UseUserData = () => {
 
   useEffect(() => {
     const email = user?.email;
-    const url = `https://uiu-club-forums.onrender.com/service/${email}`;
+    const url = `https://uiu-club-forum-server-side.vercel.app/service/${email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setUserData(data));

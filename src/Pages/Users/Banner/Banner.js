@@ -44,8 +44,6 @@ const Banner = () => {
       navigate(`/service/${id}`);
     };
 
-  
-  const [user] = useAuthState(auth)
   return (
     <div className="bg-[#DAF6FC] md:pt-60 pt-40 h-screen relative">
       <div>
@@ -61,7 +59,7 @@ const Banner = () => {
           onChange={handleSearch}
           type="text"
           className=" placeholder-[#6B707F] px-10 md:text-lg text-sm font-mono input py-10 w-full text-black bg-white"
-          placeholder="Search Your Club Or Forum Name"
+          placeholder="Search Your Favourite Club & Forum Name..."
         />
         <h1 className="absolute bottom-6 right-12 text-[#64CEE6] text-3xl ">
           <ImSearch />

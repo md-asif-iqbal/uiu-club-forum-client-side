@@ -16,7 +16,7 @@ const useToken = (user) => {
     }
 
     if (email) {
-      fetch(`https://uiu-club-forums.onrender.com/user/${email}`, {
+      fetch(`https://uiu-club-forum-server-side.vercel.app/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
